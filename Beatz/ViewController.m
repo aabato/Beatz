@@ -40,7 +40,6 @@
 - (void)startCameraCapture {
     self.session = [[AVCaptureSession alloc] init];
     self.camera = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    
     if([self.camera isTorchModeSupported:AVCaptureTorchModeOn]) {
         [self.camera lockForConfiguration:nil];
         self.camera.torchMode = AVCaptureTorchModeOn;
@@ -51,9 +50,7 @@
     if (cameraInput == nil) {
         NSLog(@"Error to create camera capture:%@",error);
     }
-    
     AVCaptureVideoDataOutput *videoOutput = [[AVCaptureVideoDataOutput alloc] init];
-    
     dispatch_queue_t captureQueue = dispatch_queue_create("captureQueue", NULL);
     [videoOutput setSampleBufferDelegate:self queue:captureQueue];
     
@@ -65,7 +62,6 @@
     [self.session startRunning];
     
     [UIApplication sharedApplication].idleTimerDisabled = YES;
-    
 }
 
 - (void) buildInitialView {

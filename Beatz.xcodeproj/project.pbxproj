@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD6CC0D71CED066C0023EBB5 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6CC0D61CED066C0023EBB5 /* Spotify.framework */; };
 		BDEDBA5E1CECE186001AD017 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEDBA5D1CECE186001AD017 /* main.m */; };
 		BDEDBA611CECE186001AD017 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEDBA601CECE186001AD017 /* AppDelegate.m */; };
 		BDEDBA641CECE186001AD017 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEDBA631CECE186001AD017 /* ViewController.m */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD6CC0D61CED066C0023EBB5 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		BDEDBA591CECE186001AD017 /* Beatz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beatz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDEDBA5D1CECE186001AD017 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BDEDBA5F1CECE186001AD017 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -33,12 +35,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD6CC0D71CED066C0023EBB5 /* Spotify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD6CC0D51CED06490023EBB5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BD6CC0D61CED066C0023EBB5 /* Spotify.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BDEDBA501CECE186001AD017 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +77,7 @@
 				BDEDBA681CECE186001AD017 /* Assets.xcassets */,
 				BDEDBA6A1CECE186001AD017 /* LaunchScreen.storyboard */,
 				BDEDBA6D1CECE186001AD017 /* Info.plist */,
+				BD6CC0D51CED06490023EBB5 /* Frameworks */,
 				BDEDBA5C1CECE186001AD017 /* Supporting Files */,
 			);
 			path = Beatz;
@@ -263,6 +275,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Beatz",
+				);
 				INFOPLIST_FILE = Beatz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.angelicabato.Beatz;
@@ -274,6 +290,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Beatz",
+				);
 				INFOPLIST_FILE = Beatz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.angelicabato.Beatz;
@@ -300,6 +320,7 @@
 				BDEDBA721CECE186001AD017 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
