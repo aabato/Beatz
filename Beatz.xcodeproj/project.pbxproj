@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD1B6E621CED0CD4003FBB16 /* Secrets.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1B6E611CED0CD4003FBB16 /* Secrets.m */; };
 		BD6CC0D71CED066C0023EBB5 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6CC0D61CED066C0023EBB5 /* Spotify.framework */; };
 		BDEDBA5E1CECE186001AD017 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEDBA5D1CECE186001AD017 /* main.m */; };
 		BDEDBA611CECE186001AD017 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEDBA601CECE186001AD017 /* AppDelegate.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD1B6E601CED0CD4003FBB16 /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secrets.h; sourceTree = "<group>"; };
+		BD1B6E611CED0CD4003FBB16 /* Secrets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Secrets.m; sourceTree = "<group>"; };
 		BD6CC0D61CED066C0023EBB5 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		BDEDBA591CECE186001AD017 /* Beatz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beatz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDEDBA5D1CECE186001AD017 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 				BDEDBA601CECE186001AD017 /* AppDelegate.m */,
 				BDEDBA621CECE186001AD017 /* ViewController.h */,
 				BDEDBA631CECE186001AD017 /* ViewController.m */,
+				BD1B6E601CED0CD4003FBB16 /* Secrets.h */,
+				BD1B6E611CED0CD4003FBB16 /* Secrets.m */,
 				BDEDBA651CECE186001AD017 /* Main.storyboard */,
 				BDEDBA681CECE186001AD017 /* Assets.xcassets */,
 				BDEDBA6A1CECE186001AD017 /* LaunchScreen.storyboard */,
@@ -162,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDEDBA641CECE186001AD017 /* ViewController.m in Sources */,
+				BD1B6E621CED0CD4003FBB16 /* Secrets.m in Sources */,
 				BDEDBA611CECE186001AD017 /* AppDelegate.m in Sources */,
 				BDEDBA5E1CECE186001AD017 /* main.m in Sources */,
 			);
