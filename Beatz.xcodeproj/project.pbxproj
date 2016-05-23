@@ -15,7 +15,59 @@
 		BDEDBA671CECE186001AD017 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDEDBA651CECE186001AD017 /* Main.storyboard */; };
 		BDEDBA691CECE186001AD017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDEDBA681CECE186001AD017 /* Assets.xcassets */; };
 		BDEDBA6C1CECE186001AD017 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDEDBA6A1CECE186001AD017 /* LaunchScreen.storyboard */; };
+		BDF81F411CF3892F007E2F03 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDF81F401CF3892F007E2F03 /* HealthKit.framework */; };
+		BDF81F491CF38A79007E2F03 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF81F471CF38A79007E2F03 /* Interface.storyboard */; };
+		BDF81F4B1CF38A79007E2F03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDF81F4A1CF38A79007E2F03 /* Assets.xcassets */; };
+		BDF81F521CF38A79007E2F03 /* BeatzWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BDF81F511CF38A79007E2F03 /* BeatzWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BDF81F5A1CF38A79007E2F03 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF81F591CF38A79007E2F03 /* InterfaceController.m */; };
+		BDF81F5D1CF38A79007E2F03 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF81F5C1CF38A79007E2F03 /* ExtensionDelegate.m */; };
+		BDF81F601CF38A79007E2F03 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF81F5F1CF38A79007E2F03 /* NotificationController.m */; };
+		BDF81F621CF38A79007E2F03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDF81F611CF38A79007E2F03 /* Assets.xcassets */; };
+		BDF81F661CF38A79007E2F03 /* BeatzWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BDF81F451CF38A79007E2F03 /* BeatzWatch.app */; };
+		BDF81F701CF38AD4007E2F03 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDF81F6F1CF38AD4007E2F03 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BDF81F531CF38A79007E2F03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDEDBA511CECE186001AD017 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDF81F501CF38A79007E2F03;
+			remoteInfo = "BeatzWatch Extension";
+		};
+		BDF81F641CF38A79007E2F03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDEDBA511CECE186001AD017 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDF81F441CF38A79007E2F03;
+			remoteInfo = BeatzWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BDF81F6A1CF38A79007E2F03 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BDF81F521CF38A79007E2F03 /* BeatzWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF81F6E1CF38A79007E2F03 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				BDF81F661CF38A79007E2F03 /* BeatzWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BD1B6E601CED0CD4003FBB16 /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secrets.h; sourceTree = "<group>"; };
@@ -31,6 +83,24 @@
 		BDEDBA681CECE186001AD017 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDEDBA6B1CECE186001AD017 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDEDBA6D1CECE186001AD017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDF81F401CF3892F007E2F03 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		BDF81F421CF3892F007E2F03 /* Beatz.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Beatz.entitlements; sourceTree = "<group>"; };
+		BDF81F451CF38A79007E2F03 /* BeatzWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeatzWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDF81F481CF38A79007E2F03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		BDF81F4A1CF38A79007E2F03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BDF81F4C1CF38A79007E2F03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDF81F511CF38A79007E2F03 /* BeatzWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "BeatzWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDF81F571CF38A79007E2F03 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		BDF81F581CF38A79007E2F03 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		BDF81F591CF38A79007E2F03 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		BDF81F5B1CF38A79007E2F03 /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
+		BDF81F5C1CF38A79007E2F03 /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
+		BDF81F5E1CF38A79007E2F03 /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
+		BDF81F5F1CF38A79007E2F03 /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
+		BDF81F611CF38A79007E2F03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BDF81F631CF38A79007E2F03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDF81F6F1CF38AD4007E2F03 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		BDF81F711CF38AD4007E2F03 /* BeatzWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "BeatzWatch Extension.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +109,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD6CC0D71CED066C0023EBB5 /* Spotify.framework in Frameworks */,
+				BDF81F411CF3892F007E2F03 /* HealthKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF81F4E1CF38A79007E2F03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDF81F701CF38AD4007E2F03 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +127,7 @@
 		BD6CC0D51CED06490023EBB5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BDF81F401CF3892F007E2F03 /* HealthKit.framework */,
 				BD6CC0D61CED066C0023EBB5 /* Spotify.framework */,
 			);
 			name = Frameworks;
@@ -56,7 +136,10 @@
 		BDEDBA501CECE186001AD017 = {
 			isa = PBXGroup;
 			children = (
+				BDF81F6F1CF38AD4007E2F03 /* HealthKit.framework */,
 				BDEDBA5B1CECE186001AD017 /* Beatz */,
+				BDF81F461CF38A79007E2F03 /* BeatzWatch */,
+				BDF81F551CF38A79007E2F03 /* BeatzWatch Extension */,
 				BDEDBA5A1CECE186001AD017 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,6 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				BDEDBA591CECE186001AD017 /* Beatz.app */,
+				BDF81F451CF38A79007E2F03 /* BeatzWatch.app */,
+				BDF81F511CF38A79007E2F03 /* BeatzWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,6 +157,7 @@
 		BDEDBA5B1CECE186001AD017 /* Beatz */ = {
 			isa = PBXGroup;
 			children = (
+				BDF81F421CF3892F007E2F03 /* Beatz.entitlements */,
 				BDEDBA5F1CECE186001AD017 /* AppDelegate.h */,
 				BDEDBA601CECE186001AD017 /* AppDelegate.m */,
 				BDEDBA621CECE186001AD017 /* ViewController.h */,
@@ -96,6 +182,41 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BDF81F461CF38A79007E2F03 /* BeatzWatch */ = {
+			isa = PBXGroup;
+			children = (
+				BDF81F471CF38A79007E2F03 /* Interface.storyboard */,
+				BDF81F4A1CF38A79007E2F03 /* Assets.xcassets */,
+				BDF81F4C1CF38A79007E2F03 /* Info.plist */,
+			);
+			path = BeatzWatch;
+			sourceTree = "<group>";
+		};
+		BDF81F551CF38A79007E2F03 /* BeatzWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BDF81F711CF38AD4007E2F03 /* BeatzWatch Extension.entitlements */,
+				BDF81F581CF38A79007E2F03 /* InterfaceController.h */,
+				BDF81F591CF38A79007E2F03 /* InterfaceController.m */,
+				BDF81F5B1CF38A79007E2F03 /* ExtensionDelegate.h */,
+				BDF81F5C1CF38A79007E2F03 /* ExtensionDelegate.m */,
+				BDF81F5E1CF38A79007E2F03 /* NotificationController.h */,
+				BDF81F5F1CF38A79007E2F03 /* NotificationController.m */,
+				BDF81F611CF38A79007E2F03 /* Assets.xcassets */,
+				BDF81F631CF38A79007E2F03 /* Info.plist */,
+				BDF81F561CF38A79007E2F03 /* Supporting Files */,
+			);
+			path = "BeatzWatch Extension";
+			sourceTree = "<group>";
+		};
+		BDF81F561CF38A79007E2F03 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BDF81F571CF38A79007E2F03 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,15 +227,51 @@
 				BDEDBA551CECE186001AD017 /* Sources */,
 				BDEDBA561CECE186001AD017 /* Frameworks */,
 				BDEDBA571CECE186001AD017 /* Resources */,
+				BDF81F6E1CF38A79007E2F03 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BDF81F651CF38A79007E2F03 /* PBXTargetDependency */,
 			);
 			name = Beatz;
 			productName = Beatz;
 			productReference = BDEDBA591CECE186001AD017 /* Beatz.app */;
 			productType = "com.apple.product-type.application";
+		};
+		BDF81F441CF38A79007E2F03 /* BeatzWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDF81F6B1CF38A79007E2F03 /* Build configuration list for PBXNativeTarget "BeatzWatch" */;
+			buildPhases = (
+				BDF81F431CF38A79007E2F03 /* Resources */,
+				BDF81F6A1CF38A79007E2F03 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDF81F541CF38A79007E2F03 /* PBXTargetDependency */,
+			);
+			name = BeatzWatch;
+			productName = BeatzWatch;
+			productReference = BDF81F451CF38A79007E2F03 /* BeatzWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		BDF81F501CF38A79007E2F03 /* BeatzWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDF81F671CF38A79007E2F03 /* Build configuration list for PBXNativeTarget "BeatzWatch Extension" */;
+			buildPhases = (
+				BDF81F4D1CF38A79007E2F03 /* Sources */,
+				BDF81F4E1CF38A79007E2F03 /* Frameworks */,
+				BDF81F4F1CF38A79007E2F03 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BeatzWatch Extension";
+			productName = "BeatzWatch Extension";
+			productReference = BDF81F511CF38A79007E2F03 /* BeatzWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -127,6 +284,25 @@
 				TargetAttributes = {
 					BDEDBA581CECE186001AD017 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 5JZECRSLR3;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
+					};
+					BDF81F441CF38A79007E2F03 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 5JZECRSLR3;
+					};
+					BDF81F501CF38A79007E2F03 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 5JZECRSLR3;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -144,6 +320,8 @@
 			projectRoot = "";
 			targets = (
 				BDEDBA581CECE186001AD017 /* Beatz */,
+				BDF81F441CF38A79007E2F03 /* BeatzWatch */,
+				BDF81F501CF38A79007E2F03 /* BeatzWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -156,6 +334,23 @@
 				BDEDBA6C1CECE186001AD017 /* LaunchScreen.storyboard in Resources */,
 				BDEDBA691CECE186001AD017 /* Assets.xcassets in Resources */,
 				BDEDBA671CECE186001AD017 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF81F431CF38A79007E2F03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDF81F4B1CF38A79007E2F03 /* Assets.xcassets in Resources */,
+				BDF81F491CF38A79007E2F03 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF81F4F1CF38A79007E2F03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDF81F621CF38A79007E2F03 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,7 +368,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BDF81F4D1CF38A79007E2F03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDF81F5D1CF38A79007E2F03 /* ExtensionDelegate.m in Sources */,
+				BDF81F5A1CF38A79007E2F03 /* InterfaceController.m in Sources */,
+				BDF81F601CF38A79007E2F03 /* NotificationController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BDF81F541CF38A79007E2F03 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDF81F501CF38A79007E2F03 /* BeatzWatch Extension */;
+			targetProxy = BDF81F531CF38A79007E2F03 /* PBXContainerItemProxy */;
+		};
+		BDF81F651CF38A79007E2F03 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDF81F441CF38A79007E2F03 /* BeatzWatch */;
+			targetProxy = BDF81F641CF38A79007E2F03 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BDEDBA651CECE186001AD017 /* Main.storyboard */ = {
@@ -190,6 +408,14 @@
 				BDEDBA6B1CECE186001AD017 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BDF81F471CF38A79007E2F03 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDF81F481CF38A79007E2F03 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -281,6 +507,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Beatz/Beatz.entitlements;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Beatz",
@@ -296,6 +523,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Beatz/Beatz.entitlements;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Beatz",
@@ -304,6 +532,66 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.angelicabato.Beatz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BDF81F681CF38A79007E2F03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "BeatzWatch Extension/BeatzWatch Extension.entitlements";
+				INFOPLIST_FILE = "BeatzWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.angelicabato.Beatz.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		BDF81F691CF38A79007E2F03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "BeatzWatch Extension/BeatzWatch Extension.entitlements";
+				INFOPLIST_FILE = "BeatzWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.angelicabato.Beatz.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		BDF81F6C1CF38A79007E2F03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				IBSC_MODULE = BeatzWatch_Extension;
+				INFOPLIST_FILE = BeatzWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.angelicabato.Beatz.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		BDF81F6D1CF38A79007E2F03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				IBSC_MODULE = BeatzWatch_Extension;
+				INFOPLIST_FILE = BeatzWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.angelicabato.Beatz.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
 		};
@@ -327,6 +615,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		BDF81F671CF38A79007E2F03 /* Build configuration list for PBXNativeTarget "BeatzWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDF81F681CF38A79007E2F03 /* Debug */,
+				BDF81F691CF38A79007E2F03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BDF81F6B1CF38A79007E2F03 /* Build configuration list for PBXNativeTarget "BeatzWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDF81F6C1CF38A79007E2F03 /* Debug */,
+				BDF81F6D1CF38A79007E2F03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
