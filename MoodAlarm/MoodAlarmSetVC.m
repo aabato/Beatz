@@ -8,7 +8,9 @@
 
 #import "MoodAlarmSetVC.h"
 
-@interface MoodAlarmSetVC () <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface MoodAlarmSetVC ()
+
+@property (retain, nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -16,7 +18,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
+    [self.locationManager startUpdatingLocation];
+    
+    NSLog(@"%@",[self deviceLocation]);
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,10 +34,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) setInitialView {
-    UIDatePicker *datePicker = [[UIDatePicker alloc] init];
-    [self.view addSubview:datePicker];
-    
+
+- (NSString *)deviceLocation
+{
+    NSString *theLocation = [NSString stringWithFormat:@"latitude: %f longitude: %f", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude];
+    return theLocation;
 }
 
 /*

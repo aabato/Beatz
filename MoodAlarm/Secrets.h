@@ -11,3 +11,4 @@
 extern NSString * const SpotifyClientID;
 extern NSString * const SpotifyClientSecret;
 
+extern NSString * const DarkSkyForecastAPIKey;

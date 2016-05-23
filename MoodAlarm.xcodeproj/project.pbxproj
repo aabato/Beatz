@@ -7,18 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ACF9DC97F3273EBC62E7AA7D /* libPods-MoodAlarm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AFCEA49A0CF6D473403C298 /* libPods-MoodAlarm.a */; };
+		BD3E15CC1CF3C01600A1FD6F /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3E15CB1CF3C01600A1FD6F /* Spotify.framework */; };
 		BDC96FCF1CF3B65E00370214 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC96FCE1CF3B65E00370214 /* main.m */; };
 		BDC96FD21CF3B65E00370214 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC96FD11CF3B65E00370214 /* AppDelegate.m */; };
 		BDC96FD51CF3B65E00370214 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC96FD41CF3B65E00370214 /* ViewController.m */; };
 		BDC96FD81CF3B65E00370214 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC96FD61CF3B65E00370214 /* Main.storyboard */; };
 		BDC96FDA1CF3B65E00370214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDC96FD91CF3B65E00370214 /* Assets.xcassets */; };
 		BDC96FDD1CF3B65E00370214 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC96FDB1CF3B65E00370214 /* LaunchScreen.storyboard */; };
+		BDC96FE41CF3B83500370214 /* MoodAlarmSetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC96FE21CF3B83500370214 /* MoodAlarmSetVC.m */; };
+		BDC96FE71CF3B84A00370214 /* Secrets.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC96FE51CF3B84A00370214 /* Secrets.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BD1B6E601CED0CD4003FBB16 /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Secrets.h; path = ../Beatz/Secrets.h; sourceTree = "<group>"; };
-		BD1B6E611CED0CD4003FBB16 /* Secrets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Secrets.m; path = ../Beatz/Secrets.m; sourceTree = "<group>"; };
-		BD6CC0D61CED066C0023EBB5 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
+		019F377D6989AC159B6EAB14 /* Pods-MoodAlarm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoodAlarm.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoodAlarm/Pods-MoodAlarm.release.xcconfig"; sourceTree = "<group>"; };
+		7AFCEA49A0CF6D473403C298 /* libPods-MoodAlarm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoodAlarm.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A57CA04C6D4D56784E864AEC /* Pods-MoodAlarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoodAlarm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoodAlarm/Pods-MoodAlarm.debug.xcconfig"; sourceTree = "<group>"; };
+		BD3E15CB1CF3C01600A1FD6F /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = MoodAlarm/Spotify.framework; sourceTree = SOURCE_ROOT; };
 		BDC96FCB1CF3B65E00370214 /* MoodAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDC96FCE1CF3B65E00370214 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BDC96FD01CF3B65E00370214 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -29,8 +34,10 @@
 		BDC96FD91CF3B65E00370214 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDC96FDC1CF3B65E00370214 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDC96FDE1CF3B65E00370214 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BDF81F741CF3B122007E2F03 /* MoodAlarmSetVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoodAlarmSetVC.h; path = ../Beatz/MoodAlarmSetVC.h; sourceTree = "<group>"; };
-		BDF81F751CF3B122007E2F03 /* MoodAlarmSetVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoodAlarmSetVC.m; path = ../Beatz/MoodAlarmSetVC.m; sourceTree = "<group>"; };
+		BDC96FE21CF3B83500370214 /* MoodAlarmSetVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodAlarmSetVC.m; sourceTree = "<group>"; };
+		BDC96FE31CF3B83500370214 /* MoodAlarmSetVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoodAlarmSetVC.h; sourceTree = "<group>"; };
+		BDC96FE51CF3B84A00370214 /* Secrets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Secrets.m; sourceTree = "<group>"; };
+		BDC96FE61CF3B84A00370214 /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secrets.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,16 +45,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD3E15CC1CF3C01600A1FD6F /* Spotify.framework in Frameworks */,
+				ACF9DC97F3273EBC62E7AA7D /* libPods-MoodAlarm.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3870CBF5E36277F3C087783E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7AFCEA49A0CF6D473403C298 /* libPods-MoodAlarm.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BD6CC0D51CED06490023EBB5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BD6CC0D61CED066C0023EBB5 /* Spotify.framework */,
+				BD3E15CB1CF3C01600A1FD6F /* Spotify.framework */,
 			);
 			name = Frameworks;
 			path = ../Beatz;
@@ -58,12 +75,12 @@
 			children = (
 				BDC96FD01CF3B65E00370214 /* AppDelegate.h */,
 				BDC96FD11CF3B65E00370214 /* AppDelegate.m */,
-				BDF81F741CF3B122007E2F03 /* MoodAlarmSetVC.h */,
-				BDF81F751CF3B122007E2F03 /* MoodAlarmSetVC.m */,
+				BDC96FE31CF3B83500370214 /* MoodAlarmSetVC.h */,
+				BDC96FE21CF3B83500370214 /* MoodAlarmSetVC.m */,
 				BDC96FD31CF3B65E00370214 /* ViewController.h */,
 				BDC96FD41CF3B65E00370214 /* ViewController.m */,
-				BD1B6E601CED0CD4003FBB16 /* Secrets.h */,
-				BD1B6E611CED0CD4003FBB16 /* Secrets.m */,
+				BDC96FE61CF3B84A00370214 /* Secrets.h */,
+				BDC96FE51CF3B84A00370214 /* Secrets.m */,
 				BDC96FD61CF3B65E00370214 /* Main.storyboard */,
 				BDC96FD91CF3B65E00370214 /* Assets.xcassets */,
 				BDC96FDB1CF3B65E00370214 /* LaunchScreen.storyboard */,
@@ -87,6 +104,8 @@
 			children = (
 				BDC96FCC1CF3B65E00370214 /* MoodAlarm */,
 				BDEDBA5A1CECE186001AD017 /* Products */,
+				EA1FD08FF9A8D69D94B9D8AD /* Pods */,
+				3870CBF5E36277F3C087783E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +117,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		EA1FD08FF9A8D69D94B9D8AD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A57CA04C6D4D56784E864AEC /* Pods-MoodAlarm.debug.xcconfig */,
+				019F377D6989AC159B6EAB14 /* Pods-MoodAlarm.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -105,9 +133,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDC96FE11CF3B65E00370214 /* Build configuration list for PBXNativeTarget "MoodAlarm" */;
 			buildPhases = (
+				9595A40C385B5F91984B85BC /* Check Pods Manifest.lock */,
 				BDC96FC71CF3B65E00370214 /* Sources */,
 				BDC96FC81CF3B65E00370214 /* Frameworks */,
 				BDC96FC91CF3B65E00370214 /* Resources */,
+				E045202E396228C97C29D308 /* Embed Pods Frameworks */,
+				FF4F16EB20013E31DA0FDFF2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -163,14 +194,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9595A40C385B5F91984B85BC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E045202E396228C97C29D308 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MoodAlarm/Pods-MoodAlarm-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF4F16EB20013E31DA0FDFF2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MoodAlarm/Pods-MoodAlarm-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BDC96FC71CF3B65E00370214 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDC96FE41CF3B83500370214 /* MoodAlarmSetVC.m in Sources */,
 				BDC96FD51CF3B65E00370214 /* ViewController.m in Sources */,
 				BDC96FD21CF3B65E00370214 /* AppDelegate.m in Sources */,
 				BDC96FCF1CF3B65E00370214 /* main.m in Sources */,
+				BDC96FE71CF3B84A00370214 /* Secrets.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,8 +279,13 @@
 /* Begin XCBuildConfiguration section */
 		BDC96FDF1CF3B65E00370214 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A57CA04C6D4D56784E864AEC /* Pods-MoodAlarm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MoodAlarm",
+				);
 				INFOPLIST_FILE = MoodAlarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.angelicabato.MoodAlarm;
@@ -209,8 +295,13 @@
 		};
 		BDC96FE01CF3B65E00370214 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 019F377D6989AC159B6EAB14 /* Pods-MoodAlarm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MoodAlarm",
+				);
 				INFOPLIST_FILE = MoodAlarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.angelicabato.MoodAlarm;
@@ -310,6 +401,7 @@
 				BDC96FE01CF3B65E00370214 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BDEDBA541CECE186001AD017 /* Build configuration list for PBXProject "MoodAlarm" */ = {
 			isa = XCConfigurationList;
