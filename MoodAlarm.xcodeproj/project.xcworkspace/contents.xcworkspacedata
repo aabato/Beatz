@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Beatz.xcodeproj">
+      location = "self:/Users/angelirose/Development/PERSONAL PROJECTS/Beatz/MoodAlarm.xcodeproj">
    </FileRef>
 </Workspace>

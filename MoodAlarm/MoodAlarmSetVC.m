@@ -8,7 +8,7 @@
 
 #import "MoodAlarmSetVC.h"
 
-@interface MoodAlarmSetVC ()
+@interface MoodAlarmSetVC () <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @end
 
@@ -25,6 +25,8 @@
 }
 
 - (void) setInitialView {
+    UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+    [self.view addSubview:datePicker];
     
 }
 
