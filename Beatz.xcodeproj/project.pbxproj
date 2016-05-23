@@ -11,12 +11,12 @@
 		BD6CC0D71CED066C0023EBB5 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6CC0D61CED066C0023EBB5 /* Spotify.framework */; };
 		BDEDBA5E1CECE186001AD017 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEDBA5D1CECE186001AD017 /* main.m */; };
 		BDEDBA611CECE186001AD017 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEDBA601CECE186001AD017 /* AppDelegate.m */; };
-		BDEDBA641CECE186001AD017 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEDBA631CECE186001AD017 /* ViewController.m */; };
 		BDEDBA671CECE186001AD017 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDEDBA651CECE186001AD017 /* Main.storyboard */; };
 		BDEDBA691CECE186001AD017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDEDBA681CECE186001AD017 /* Assets.xcassets */; };
 		BDEDBA6C1CECE186001AD017 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDEDBA6A1CECE186001AD017 /* LaunchScreen.storyboard */; };
 		BDF81F521CF38A79007E2F03 /* BeatzWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BDF81F511CF38A79007E2F03 /* BeatzWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BDF81F661CF38A79007E2F03 /* BeatzWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BDF81F451CF38A79007E2F03 /* BeatzWatch.app */; };
+		BDF81F761CF3B122007E2F03 /* MoodAlarmSetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF81F751CF3B122007E2F03 /* MoodAlarmSetVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,14 +69,14 @@
 		BDEDBA5D1CECE186001AD017 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BDEDBA5F1CECE186001AD017 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BDEDBA601CECE186001AD017 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BDEDBA621CECE186001AD017 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BDEDBA631CECE186001AD017 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BDEDBA661CECE186001AD017 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BDEDBA681CECE186001AD017 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDEDBA6B1CECE186001AD017 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDEDBA6D1CECE186001AD017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDF81F451CF38A79007E2F03 /* BeatzWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeatzWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF81F511CF38A79007E2F03 /* BeatzWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "BeatzWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDF81F741CF3B122007E2F03 /* MoodAlarmSetVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoodAlarmSetVC.h; sourceTree = "<group>"; };
+		BDF81F751CF3B122007E2F03 /* MoodAlarmSetVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodAlarmSetVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +129,8 @@
 			children = (
 				BDEDBA5F1CECE186001AD017 /* AppDelegate.h */,
 				BDEDBA601CECE186001AD017 /* AppDelegate.m */,
-				BDEDBA621CECE186001AD017 /* ViewController.h */,
-				BDEDBA631CECE186001AD017 /* ViewController.m */,
+				BDF81F741CF3B122007E2F03 /* MoodAlarmSetVC.h */,
+				BDF81F751CF3B122007E2F03 /* MoodAlarmSetVC.m */,
 				BD1B6E601CED0CD4003FBB16 /* Secrets.h */,
 				BD1B6E611CED0CD4003FBB16 /* Secrets.m */,
 				BDEDBA651CECE186001AD017 /* Main.storyboard */,
@@ -292,7 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDEDBA641CECE186001AD017 /* ViewController.m in Sources */,
+				BDF81F761CF3B122007E2F03 /* MoodAlarmSetVC.m in Sources */,
 				BD1B6E621CED0CD4003FBB16 /* Secrets.m in Sources */,
 				BDEDBA611CECE186001AD017 /* AppDelegate.m in Sources */,
 				BDEDBA5E1CECE186001AD017 /* main.m in Sources */,
