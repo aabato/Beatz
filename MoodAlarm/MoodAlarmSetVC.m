@@ -81,8 +81,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - CLLocationManagerDelegate
-
+//#pragma mark - CLLocationManagerDelegate
+//
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     NSLog(@"didFailWithError: %@", error);
@@ -96,7 +96,7 @@
     
     [self presentViewController:errorAlert animated:YES completion:nil];
 }
-
+//
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     NSLog(@"didUpdateToLocation: %@", newLocation);
