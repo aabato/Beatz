@@ -6,25 +6,29 @@
 //  Copyright © 2016 Angelica Bato. All rights reserved.
 //
 
-#import "MoodAlarmSetVC.h"
-#import <INTULocationManager/INTULocationManager.h>
+#import "MASetLocation.h"
+@import CoreLocation;
 
-@interface MoodAlarmSetVC () <CLLocationManagerDelegate>
+//#import <INTULocationManager/INTULocationManager.h>
+
+@interface MASetLocation () <CLLocationManagerDelegate>
 
 @property (retain, nonatomic) CLLocationManager *locationManager;
-@property (assign, nonatomic) CGFloat latitude;
-@property (assign, nonatomic) CGFloat longitude;
-
+@property (strong, nonatomic) CLLocation *currentLocation;
+@property (strong, nonatomic) NSString *latitude;
+@property (strong, nonatomic) NSString *longitude;
+@property (strong, nonatomic) NSString *city;
+@property (strong, nonatomic) NSString *state;
 
 @end
 
-@implementation MoodAlarmSetVC
+@implementation MASetLocation
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
+//    self.locationManager = [[CLLocationManager alloc] init];
+//    self.locationManager.delegate = self;
     
     UIButton *getLocationButton = [[UIButton alloc] init];
     [getLocationButton setTitle:@"Get Location" forState:UIControlStateNormal];
@@ -44,45 +48,28 @@
 }
 
 -(IBAction)getLocButtonTapped:(id)sender {
-    NSLog(@"Button tapped!");
-    
-    INTULocationManager *manager = [INTULocationManager sharedInstance];
-    
-    [manager requestLocationWithDesiredAccuracy:INTULocationAccuracyBlock timeout:0.0 block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
-        if (status == INTULocationStatusSuccess) {
-            NSLog(@"%@",currentLocation);
-            NSLog(@"%f,%f",currentLocation.coordinate.latitude, currentLocation.coordinate.longitude);
-            self.latitude = currentLocation.coordinate.latitude;
-            self.longitude = currentLocation.coordinate.longitude;
-        }
-        else if (status == INTULocationStatusTimedOut) {
-            NSLog(@"Timed out");
-        }
-        else {
-            NSLog(@"ERROR");
-        }
-    }];
-    
-    [manager subscribeToLocationUpdatesWithDesiredAccuracy:INTULocationAccuracyCity block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
-        if (status == INTULocationStatusSuccess) {
-            NSLog(@"SUCCESS");
-        }
-        else {
-            NSLog(@"ERROR");
-        }
-    }];
-    
-
-    
+    [self getLocation];
 }
+
+- (void)getLocation {
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+    self.locationManager.delegate = self;
+    [self.locationManager requestWhenInUseAuthorization];
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    [self.locationManager startUpdatingLocation];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-//#pragma mark - CLLocationManagerDelegate
-//
+#pragma mark - CLLocationManagerDelegate
+
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     NSLog(@"didFailWithError: %@", error);
@@ -96,17 +83,32 @@
     
     [self presentViewController:errorAlert animated:YES completion:nil];
 }
-//
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
-    NSLog(@"didUpdateToLocation: %@", newLocation);
-    CLLocation *currentLocation = newLocation;
-    
-    NSLog(@"%@, %@",[NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude],[NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude]);
-}
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    NSLog(@"HELLO:%@",locations[0]);
+    self.currentLocation = [locations lastObject];
+    self.latitude = [NSString stringWithFormat:@"%f",self.currentLocation.coordinate.latitude];
+    self.longitude = [NSString stringWithFormat:@"%f",self.currentLocation.coordinate.longitude];
+    
+    [self.locationManager startUpdatingLocation];
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:self.currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        NSUInteger count = placemarks.count;
+        
+        for (CLPlacemark *placemark in placemarks) {
+            self.city = [placemark locality];
+            self.state = [placemark administrativeArea];
+            NSLog(@"%@, %@", self.city, self.state);
+            count--;
+        }
+        if (count == 0) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"locationInfoComplete" object:nil];
+        }
+    }];
+    
+//    NSLog(@"HELLO:%@",[locations lastObject]);
+    
+    
 }
 
 - (void)locationManager:(CLLocationManager*)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status

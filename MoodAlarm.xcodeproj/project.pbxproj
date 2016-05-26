@@ -15,7 +15,7 @@
 		BDC96FD81CF3B65E00370214 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC96FD61CF3B65E00370214 /* Main.storyboard */; };
 		BDC96FDA1CF3B65E00370214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDC96FD91CF3B65E00370214 /* Assets.xcassets */; };
 		BDC96FDD1CF3B65E00370214 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC96FDB1CF3B65E00370214 /* LaunchScreen.storyboard */; };
-		BDC96FE41CF3B83500370214 /* MoodAlarmSetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC96FE21CF3B83500370214 /* MoodAlarmSetVC.m */; };
+		BDC96FE41CF3B83500370214 /* MASetLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC96FE21CF3B83500370214 /* MASetLocation.m */; };
 		BDC96FE71CF3B84A00370214 /* Secrets.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC96FE51CF3B84A00370214 /* Secrets.m */; };
 /* End PBXBuildFile section */
 
@@ -34,8 +34,8 @@
 		BDC96FD91CF3B65E00370214 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDC96FDC1CF3B65E00370214 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDC96FDE1CF3B65E00370214 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BDC96FE21CF3B83500370214 /* MoodAlarmSetVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodAlarmSetVC.m; sourceTree = "<group>"; };
-		BDC96FE31CF3B83500370214 /* MoodAlarmSetVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoodAlarmSetVC.h; sourceTree = "<group>"; };
+		BDC96FE21CF3B83500370214 /* MASetLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASetLocation.m; sourceTree = "<group>"; };
+		BDC96FE31CF3B83500370214 /* MASetLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASetLocation.h; sourceTree = "<group>"; };
 		BDC96FE51CF3B84A00370214 /* Secrets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Secrets.m; sourceTree = "<group>"; };
 		BDC96FE61CF3B84A00370214 /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secrets.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,8 +75,8 @@
 			children = (
 				BDC96FD01CF3B65E00370214 /* AppDelegate.h */,
 				BDC96FD11CF3B65E00370214 /* AppDelegate.m */,
-				BDC96FE31CF3B83500370214 /* MoodAlarmSetVC.h */,
-				BDC96FE21CF3B83500370214 /* MoodAlarmSetVC.m */,
+				BDC96FE31CF3B83500370214 /* MASetLocation.h */,
+				BDC96FE21CF3B83500370214 /* MASetLocation.m */,
 				BDC96FD31CF3B65E00370214 /* ViewController.h */,
 				BDC96FD41CF3B65E00370214 /* ViewController.m */,
 				BDC96FE61CF3B84A00370214 /* Secrets.h */,
@@ -247,7 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDC96FE41CF3B83500370214 /* MoodAlarmSetVC.m in Sources */,
+				BDC96FE41CF3B83500370214 /* MASetLocation.m in Sources */,
 				BDC96FD51CF3B65E00370214 /* ViewController.m in Sources */,
 				BDC96FD21CF3B65E00370214 /* AppDelegate.m in Sources */,
 				BDC96FCF1CF3B65E00370214 /* main.m in Sources */,
