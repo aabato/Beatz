@@ -12,7 +12,7 @@
 
 + (void)setupSpotifyOAuth {
     [[SPTAuth defaultInstance] setClientID:SpotifyClientID];
-    [[SPTAuth defaultInstance] setRedirectURL:[NSURL URLWithString:@"moodAlarm-app-scheme://oauth"]];
+    [[SPTAuth defaultInstance] setRedirectURL:[NSURL URLWithString:@"moodalarm-app-scheme://oauth"]];
     [[SPTAuth defaultInstance] setRequestedScopes:@[SPTAuthStreamingScope,SPTAuthUserLibraryReadScope]];
     
     NSURL *loginURL = [[SPTAuth defaultInstance] loginURL];

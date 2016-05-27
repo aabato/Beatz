@@ -21,7 +21,7 @@
     SPTAuth *auth = [SPTAuth defaultInstance];
     auth.clientID = SpotifyClientID;
     auth.requestedScopes = @[SPTAuthStreamingScope,SPTAuthUserLibraryReadScope];
-    auth.redirectURL = [NSURL URLWithString:@"moodAlarm-app-scheme://oauth"];
+    auth.redirectURL = [NSURL URLWithString:@"moodalarm-app-scheme://oauth"];
     auth.tokenSwapURL = [NSURL URLWithString:@""];
     auth.tokenRefreshURL = [NSURL URLWithString:@""];
     auth.sessionUserDefaultsKey = @"SpotifySession";
@@ -76,6 +76,8 @@
         [auth handleAuthCallbackWithTriggeredAuthURL:url callback:authCallBack];
         return YES;
     }
+    
+    NSLog(@"%@",url);
     NSLog(@"Spotify hates me...");
     return NO;
 }

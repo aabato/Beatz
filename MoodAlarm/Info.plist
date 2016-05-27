@@ -25,7 +25,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>moodAlarm-app-scheme</string>
+				<string>moodalarm-app-scheme</string>
 			</array>
 		</dict>
 	</array>

@@ -27,12 +27,11 @@
 
 -(void)something:(NSNotification *)notification {
     NSLog(@"session is updated");
-    if (self.navigationController.topViewController == self) {
-        SPTAuth *auth = [SPTAuth defaultInstance];
-        if (auth.session && [auth.session isValid]) {
-            NSLog(@"valid session bitches");
-        }
+    SPTAuth *auth = [SPTAuth defaultInstance];
+    if (auth.session && [auth.session isValid]) {
+        //
     }
+
 }
 
 - (void)didReceiveMemoryWarning {
