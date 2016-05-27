@@ -7,6 +7,8 @@
 //
 
 #import "MASetLocation.h"
+#import "MAWeatherAPI.h"
+#import "MALocationStore.h"
 @import CoreLocation;
 
 //#import <INTULocationManager/INTULocationManager.h>
@@ -27,11 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.locationManager = [[CLLocationManager alloc] init];
-//    self.locationManager.delegate = self;
-    
     UIButton *getLocationButton = [[UIButton alloc] init];
-    [getLocationButton setTitle:@"Get Location" forState:UIControlStateNormal];
+    [getLocationButton setTitle:@"Get Weather" forState:UIControlStateNormal];
     [getLocationButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     
@@ -48,86 +47,28 @@
 }
 
 -(IBAction)getLocButtonTapped:(id)sender {
-    [self getLocation];
-}
-
-- (void)getLocation {
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
-    self.locationManager.delegate = self;
-    [self.locationManager requestWhenInUseAuthorization];
-    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+    if ([CLLocationManager locationServicesEnabled]) {
+        NSLog(@"2");
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+        self.locationManager.delegate = self;
         [self.locationManager requestWhenInUseAuthorization];
+        if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+            [self.locationManager requestWhenInUseAuthorization];
+        }
+        [self.locationManager startUpdatingLocation];
     }
-    [self.locationManager startUpdatingLocation];
-}
 
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - CLLocationManagerDelegate
 
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    NSLog(@"didFailWithError: %@", error);
-    UIAlertController *errorAlert = [UIAlertController alertControllerWithTitle:@"Failed to Get Your Location" message:@"Try again!" preferredStyle:UIAlertControllerStyleAlert];
-                                     
-    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }];
-    
-    [errorAlert addAction:ok];
-    
-    [self presentViewController:errorAlert animated:YES completion:nil];
-}
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    self.currentLocation = [locations lastObject];
-    self.latitude = [NSString stringWithFormat:@"%f",self.currentLocation.coordinate.latitude];
-    self.longitude = [NSString stringWithFormat:@"%f",self.currentLocation.coordinate.longitude];
-    
-    [self.locationManager startUpdatingLocation];
-    
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder reverseGeocodeLocation:self.currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-        NSUInteger count = placemarks.count;
-        
-        for (CLPlacemark *placemark in placemarks) {
-            self.city = [placemark locality];
-            self.state = [placemark administrativeArea];
-            NSLog(@"%@, %@", self.city, self.state);
-            count--;
-        }
-        if (count == 0) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"locationInfoComplete" object:nil];
-        }
-    }];
-    
-//    NSLog(@"HELLO:%@",[locations lastObject]);
-    
-    
-}
 
-- (void)locationManager:(CLLocationManager*)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
-{
-    switch (status) {
-        case kCLAuthorizationStatusNotDetermined: {
-            NSLog(@"User still thinking..");
-        } break;
-        case kCLAuthorizationStatusDenied: {
-            NSLog(@"User hates you");
-        } break;
-        case kCLAuthorizationStatusAuthorizedWhenInUse:
-        case kCLAuthorizationStatusAuthorizedAlways: {
-            [self.locationManager startUpdatingLocation];
-        } break;
-        default:
-            break;
-    }
-}
 
 /*
 #pragma mark - Navigation
