@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		ACF9DC97F3273EBC62E7AA7D /* libPods-MoodAlarm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AFCEA49A0CF6D473403C298 /* libPods-MoodAlarm.a */; };
+		BD25086B1CF7E5FE0092546B /* MASpotifyAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BD25086A1CF7E5FE0092546B /* MASpotifyAPIClient.m */; };
+		BD25086E1CF7EBD50092546B /* MASpotifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BD25086D1CF7EBD50092546B /* MASpotifyVC.m */; };
 		BD3E15CC1CF3C01600A1FD6F /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3E15CB1CF3C01600A1FD6F /* Spotify.framework */; };
 		BDC96FCF1CF3B65E00370214 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC96FCE1CF3B65E00370214 /* main.m */; };
 		BDC96FD21CF3B65E00370214 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC96FD11CF3B65E00370214 /* AppDelegate.m */; };
@@ -16,7 +18,7 @@
 		BDC96FDD1CF3B65E00370214 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC96FDB1CF3B65E00370214 /* LaunchScreen.storyboard */; };
 		BDC96FE71CF3B84A00370214 /* Secrets.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC96FE51CF3B84A00370214 /* Secrets.m */; };
 		BDD21E451CF79BE000753CF2 /* MAWeatherVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD21E441CF79BE000753CF2 /* MAWeatherVC.m */; };
-		BDD21E481CF7A3F900753CF2 /* MAWeatherAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD21E471CF7A3F900753CF2 /* MAWeatherAPI.m */; };
+		BDD21E481CF7A3F900753CF2 /* MAWeatherAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD21E471CF7A3F900753CF2 /* MAWeatherAPIClient.m */; };
 		BDD21E4B1CF7A6D900753CF2 /* MALocationStore.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD21E4A1CF7A6D900753CF2 /* MALocationStore.m */; };
 		BDD21E4E1CF7AD8700753CF2 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD21E4D1CF7AD8700753CF2 /* Constants.m */; };
 /* End PBXBuildFile section */
@@ -25,6 +27,10 @@
 		019F377D6989AC159B6EAB14 /* Pods-MoodAlarm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoodAlarm.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoodAlarm/Pods-MoodAlarm.release.xcconfig"; sourceTree = "<group>"; };
 		7AFCEA49A0CF6D473403C298 /* libPods-MoodAlarm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoodAlarm.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57CA04C6D4D56784E864AEC /* Pods-MoodAlarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoodAlarm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoodAlarm/Pods-MoodAlarm.debug.xcconfig"; sourceTree = "<group>"; };
+		BD2508691CF7E5FE0092546B /* MASpotifyAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASpotifyAPIClient.h; sourceTree = "<group>"; };
+		BD25086A1CF7E5FE0092546B /* MASpotifyAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASpotifyAPIClient.m; sourceTree = "<group>"; };
+		BD25086C1CF7EBD50092546B /* MASpotifyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASpotifyVC.h; sourceTree = "<group>"; };
+		BD25086D1CF7EBD50092546B /* MASpotifyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASpotifyVC.m; sourceTree = "<group>"; };
 		BD3E15CB1CF3C01600A1FD6F /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = MoodAlarm/Spotify.framework; sourceTree = SOURCE_ROOT; };
 		BDC96FCB1CF3B65E00370214 /* MoodAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDC96FCE1CF3B65E00370214 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -38,8 +44,8 @@
 		BDC96FE61CF3B84A00370214 /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secrets.h; sourceTree = "<group>"; };
 		BDD21E431CF79BE000753CF2 /* MAWeatherVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAWeatherVC.h; sourceTree = "<group>"; };
 		BDD21E441CF79BE000753CF2 /* MAWeatherVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAWeatherVC.m; sourceTree = "<group>"; };
-		BDD21E461CF7A3F900753CF2 /* MAWeatherAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAWeatherAPI.h; sourceTree = "<group>"; };
-		BDD21E471CF7A3F900753CF2 /* MAWeatherAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAWeatherAPI.m; sourceTree = "<group>"; };
+		BDD21E461CF7A3F900753CF2 /* MAWeatherAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAWeatherAPIClient.h; sourceTree = "<group>"; };
+		BDD21E471CF7A3F900753CF2 /* MAWeatherAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAWeatherAPIClient.m; sourceTree = "<group>"; };
 		BDD21E491CF7A6D900753CF2 /* MALocationStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MALocationStore.h; sourceTree = "<group>"; };
 		BDD21E4A1CF7A6D900753CF2 /* MALocationStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MALocationStore.m; sourceTree = "<group>"; };
 		BDD21E4C1CF7AD8700753CF2 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -79,9 +85,9 @@
 		BDC96FCC1CF3B65E00370214 /* MoodAlarm */ = {
 			isa = PBXGroup;
 			children = (
-				BDD21E541CF7D8CA00753CF2 /* APIs */,
 				BDC96FD01CF3B65E00370214 /* AppDelegate.h */,
 				BDC96FD11CF3B65E00370214 /* AppDelegate.m */,
+				BDD21E541CF7D8CA00753CF2 /* APIs */,
 				BDD21E531CF7BD0200753CF2 /* View */,
 				BDD21E521CF7BCFC00753CF2 /* Model */,
 				BDC96FD61CF3B65E00370214 /* Main.storyboard */,
@@ -120,6 +126,8 @@
 			children = (
 				BDD21E431CF79BE000753CF2 /* MAWeatherVC.h */,
 				BDD21E441CF79BE000753CF2 /* MAWeatherVC.m */,
+				BD25086C1CF7EBD50092546B /* MASpotifyVC.h */,
+				BD25086D1CF7EBD50092546B /* MASpotifyVC.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -127,8 +135,10 @@
 		BDD21E541CF7D8CA00753CF2 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
-				BDD21E461CF7A3F900753CF2 /* MAWeatherAPI.h */,
-				BDD21E471CF7A3F900753CF2 /* MAWeatherAPI.m */,
+				BDD21E461CF7A3F900753CF2 /* MAWeatherAPIClient.h */,
+				BDD21E471CF7A3F900753CF2 /* MAWeatherAPIClient.m */,
+				BD2508691CF7E5FE0092546B /* MASpotifyAPIClient.h */,
+				BD25086A1CF7E5FE0092546B /* MASpotifyAPIClient.m */,
 			);
 			name = APIs;
 			sourceTree = "<group>";
@@ -281,13 +291,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDD21E481CF7A3F900753CF2 /* MAWeatherAPI.m in Sources */,
+				BDD21E481CF7A3F900753CF2 /* MAWeatherAPIClient.m in Sources */,
 				BDD21E4B1CF7A6D900753CF2 /* MALocationStore.m in Sources */,
 				BDD21E451CF79BE000753CF2 /* MAWeatherVC.m in Sources */,
 				BDC96FD21CF3B65E00370214 /* AppDelegate.m in Sources */,
 				BDC96FCF1CF3B65E00370214 /* main.m in Sources */,
 				BDC96FE71CF3B84A00370214 /* Secrets.m in Sources */,
 				BDD21E4E1CF7AD8700753CF2 /* Constants.m in Sources */,
+				BD25086B1CF7E5FE0092546B /* MASpotifyAPIClient.m in Sources */,
+				BD25086E1CF7EBD50092546B /* MASpotifyVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

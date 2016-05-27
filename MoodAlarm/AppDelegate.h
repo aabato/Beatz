@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Spotify/Spotify.h>
+#import "MASpotifyAPIClient.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

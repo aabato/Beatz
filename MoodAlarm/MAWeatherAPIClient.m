@@ -6,10 +6,10 @@
 //  Copyright © 2016 Angelica Bato. All rights reserved.
 //
 
-#import "MAWeatherAPI.h"
+#import "MAWeatherAPIClient.h"
 @import CoreLocation;
 
-@implementation MAWeatherAPI
+@implementation MAWeatherAPIClient
 
 + (void)getWeatherInfoForCurrentLocationForLatitude:(NSString *)latitude longitude:(NSString *)longitude withCompletion:(void (^)(NSDictionary *))completionBlock {
     

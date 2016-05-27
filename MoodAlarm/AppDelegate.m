@@ -42,4 +42,25 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
+    SPTAuth *auth = [SPTAuth defaultInstance];
+    
+    SPTAuthCallback authCallBack = ^(NSError *error, SPTSession *session) {
+        if (error) {
+            NSLog(@"****Auth error: %@", error);
+            return;
+        }
+        
+        auth.session = session;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"sessionUpdated" object:self];
+    };
+    
+    if([auth canHandleURL:url]) {
+        [auth handleAuthCallbackWithTriggeredAuthURL:url callback:authCallBack];
+        return YES;
+    }
+    
+    return NO;
+}
+
 @end

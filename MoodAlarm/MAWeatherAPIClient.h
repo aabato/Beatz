@@ -11,7 +11,7 @@
 #import "Constants.h"
 #import "Secrets.h"
 
-@interface MAWeatherAPI : NSObject
+@interface MAWeatherAPIClient : NSObject
 
 + (void)getWeatherInfoForCurrentLocationForLatitude:(NSString *)latitude longitude:(NSString *)longitude withCompletion:(void (^)(NSDictionary *))completionBlock;
 @end

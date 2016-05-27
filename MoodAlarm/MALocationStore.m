@@ -7,7 +7,7 @@
 //
 
 #import "MALocationStore.h"
-#import "MAWeatherAPI.h"
+#import "MAWeatherAPIClient.h"
 
 @implementation MALocationStore
 
@@ -49,7 +49,7 @@
 
 -(void)getWeatherWithCompletionBlock:(void(^)(NSDictionary *currently, NSDictionary *day))completionBlock {
     
-    [MAWeatherAPI getWeatherInfoForCurrentLocationForLatitude:self.latitude longitude:self.longitude withCompletion:^(NSDictionary *dict) {
+    [MAWeatherAPIClient getWeatherInfoForCurrentLocationForLatitude:self.latitude longitude:self.longitude withCompletion:^(NSDictionary *dict) {
 //        NSLog(@"%@",dict[@"currently"][@"apparentTemperature"]);
         completionBlock(dict[@"currently"],dict[@"daily"][@"data"][0]);
     }];
