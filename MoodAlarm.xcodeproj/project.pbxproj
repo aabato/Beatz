@@ -79,6 +79,7 @@
 		BDC96FCC1CF3B65E00370214 /* MoodAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				BDD21E541CF7D8CA00753CF2 /* APIs */,
 				BDC96FD01CF3B65E00370214 /* AppDelegate.h */,
 				BDC96FD11CF3B65E00370214 /* AppDelegate.m */,
 				BDD21E531CF7BD0200753CF2 /* View */,
@@ -106,8 +107,6 @@
 			children = (
 				BDD21E491CF7A6D900753CF2 /* MALocationStore.h */,
 				BDD21E4A1CF7A6D900753CF2 /* MALocationStore.m */,
-				BDD21E461CF7A3F900753CF2 /* MAWeatherAPI.h */,
-				BDD21E471CF7A3F900753CF2 /* MAWeatherAPI.m */,
 				BDD21E4C1CF7AD8700753CF2 /* Constants.h */,
 				BDD21E4D1CF7AD8700753CF2 /* Constants.m */,
 				BDC96FE61CF3B84A00370214 /* Secrets.h */,
@@ -123,6 +122,15 @@
 				BDD21E441CF79BE000753CF2 /* MAWeatherVC.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		BDD21E541CF7D8CA00753CF2 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				BDD21E461CF7A3F900753CF2 /* MAWeatherAPI.h */,
+				BDD21E471CF7A3F900753CF2 /* MAWeatherAPI.m */,
+			);
+			name = APIs;
 			sourceTree = "<group>";
 		};
 		BDEDBA501CECE186001AD017 = {
