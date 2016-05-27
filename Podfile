@@ -6,8 +6,6 @@
 target 'MoodAlarm' do
 
     pod 'AFNetworking', '~> 3.0'
-    pod 'AFOAuth2Manager','~> 3.0'
-    pod 'INTULocationManager', '~> 4.2'
 
 end
 
