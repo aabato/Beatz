@@ -18,18 +18,24 @@
     [super viewDidLoad];
     
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(something:) name:@"sessionUpdated" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdatedNotification:) name:@"sessionUpdated" object:nil];
     
     
     
     // Do any additional setup after loading the view.
 }
 
--(void)something:(NSNotification *)notification {
+-(void)sessionUpdatedNotification:(NSNotification *)notification {
     NSLog(@"session is updated");
     SPTAuth *auth = [SPTAuth defaultInstance];
     if (auth.session && [auth.session isValid]) {
         //
+    }
+    else if (auth.session && ![auth.session isValid]) {
+        [auth renewSession:auth.session callback:^(NSError *error, SPTSession *session) {
+            auth.session = session;
+            NSLog(@"renewed session");
+        }];
     }
 
 }

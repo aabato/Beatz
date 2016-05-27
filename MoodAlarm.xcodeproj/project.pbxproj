@@ -11,6 +11,7 @@
 		BD25086B1CF7E5FE0092546B /* MASpotifyAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BD25086A1CF7E5FE0092546B /* MASpotifyAPIClient.m */; };
 		BD25086E1CF7EBD50092546B /* MASpotifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BD25086D1CF7EBD50092546B /* MASpotifyVC.m */; };
 		BD3E15CC1CF3C01600A1FD6F /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3E15CB1CF3C01600A1FD6F /* Spotify.framework */; };
+		BD50E7791CF8BBAB002E5BB9 /* NSURL+FragmentString.m in Sources */ = {isa = PBXBuildFile; fileRef = BD50E7781CF8BBAB002E5BB9 /* NSURL+FragmentString.m */; };
 		BDC96FCF1CF3B65E00370214 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC96FCE1CF3B65E00370214 /* main.m */; };
 		BDC96FD21CF3B65E00370214 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC96FD11CF3B65E00370214 /* AppDelegate.m */; };
 		BDC96FD81CF3B65E00370214 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC96FD61CF3B65E00370214 /* Main.storyboard */; };
@@ -32,6 +33,8 @@
 		BD25086C1CF7EBD50092546B /* MASpotifyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASpotifyVC.h; sourceTree = "<group>"; };
 		BD25086D1CF7EBD50092546B /* MASpotifyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASpotifyVC.m; sourceTree = "<group>"; };
 		BD3E15CB1CF3C01600A1FD6F /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = MoodAlarm/Spotify.framework; sourceTree = SOURCE_ROOT; };
+		BD50E7771CF8BBAB002E5BB9 /* NSURL+FragmentString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+FragmentString.h"; sourceTree = "<group>"; };
+		BD50E7781CF8BBAB002E5BB9 /* NSURL+FragmentString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+FragmentString.m"; sourceTree = "<group>"; };
 		BDC96FCB1CF3B65E00370214 /* MoodAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDC96FCE1CF3B65E00370214 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BDC96FD01CF3B65E00370214 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -139,6 +142,8 @@
 				BDD21E471CF7A3F900753CF2 /* MAWeatherAPIClient.m */,
 				BD2508691CF7E5FE0092546B /* MASpotifyAPIClient.h */,
 				BD25086A1CF7E5FE0092546B /* MASpotifyAPIClient.m */,
+				BD50E7771CF8BBAB002E5BB9 /* NSURL+FragmentString.h */,
+				BD50E7781CF8BBAB002E5BB9 /* NSURL+FragmentString.m */,
 			);
 			name = APIs;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 				BDD21E451CF79BE000753CF2 /* MAWeatherVC.m in Sources */,
 				BDC96FD21CF3B65E00370214 /* AppDelegate.m in Sources */,
 				BDC96FCF1CF3B65E00370214 /* main.m in Sources */,
+				BD50E7791CF8BBAB002E5BB9 /* NSURL+FragmentString.m in Sources */,
 				BDC96FE71CF3B84A00370214 /* Secrets.m in Sources */,
 				BDD21E4E1CF7AD8700753CF2 /* Constants.m in Sources */,
 				BD25086B1CF7E5FE0092546B /* MASpotifyAPIClient.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "NSURL+FragmentString.h"
 
 @interface AppDelegate ()
 
@@ -73,6 +74,12 @@
     };
     
     if([auth canHandleURL:url]) {
+        NSLog(@"%@",url);
+        NSString *accessToken = [url valueForFirstQueryItemNamed:@"access_token"];
+        NSLog(@"access token: %@",accessToken);
+        NSString *expiration = [url valueForFirstQueryItemNamed:@"expires_in"];
+        NSLog(@"expiration: %@",expiration);
+        
         [auth handleAuthCallbackWithTriggeredAuthURL:url callback:authCallBack];
         return YES;
     }
