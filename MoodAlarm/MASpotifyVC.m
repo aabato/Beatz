@@ -16,7 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [MASpotifyAPIClient setupSpotifyOAuth];
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(something:) name:@"sessionUpdated" object:nil];
@@ -28,6 +27,12 @@
 
 -(void)something:(NSNotification *)notification {
     NSLog(@"session is updated");
+    if (self.navigationController.topViewController == self) {
+        SPTAuth *auth = [SPTAuth defaultInstance];
+        if (auth.session && [auth.session isValid]) {
+            NSLog(@"valid session bitches");
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {

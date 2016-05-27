@@ -17,6 +17,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    SPTAuth *auth = [SPTAuth defaultInstance];
+    auth.clientID = SpotifyClientID;
+    auth.requestedScopes = @[SPTAuthStreamingScope,SPTAuthUserLibraryReadScope];
+    auth.redirectURL = [NSURL URLWithString:@"moodAlarm-app-scheme://oauth"];
+    auth.tokenSwapURL = [NSURL URLWithString:@""];
+    auth.tokenRefreshURL = [NSURL URLWithString:@""];
+    auth.sessionUserDefaultsKey = @"SpotifySession";
+    
+    NSURL *loginURL = [auth loginURL];
+    
+    [application performSelector:@selector(openURL:) withObject:loginURL afterDelay:0.1];
+    
     return YES;
 }
 
@@ -43,6 +56,8 @@
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
+    NSLog(@"APP DELEGATE WUT");
+    
     SPTAuth *auth = [SPTAuth defaultInstance];
     
     SPTAuthCallback authCallBack = ^(NSError *error, SPTSession *session) {
@@ -52,14 +67,16 @@
         }
         
         auth.session = session;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"sessionUpdated" object:self];
+        NSLog(@"posting notification");
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"sessionUpdated" object:nil];
+        
     };
     
     if([auth canHandleURL:url]) {
         [auth handleAuthCallbackWithTriggeredAuthURL:url callback:authCallBack];
         return YES;
     }
-    
+    NSLog(@"Spotify hates me...");
     return NO;
 }
 
