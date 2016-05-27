@@ -20,8 +20,7 @@
 
 + (instancetype)sharedStore;
 - (void)getLocation;
--(NSArray *)getCurrentLocationInformation;
-- (void)getWeatherWithCompletionBlock:(void(^)(BOOL))completionBlock;
+- (void)getWeatherWithCompletionBlock:(void(^)(NSDictionary *currently, NSDictionary *day))completionBlock;
 
 
 @end

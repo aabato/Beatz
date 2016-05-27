@@ -14,7 +14,6 @@
 		BDC96FD81CF3B65E00370214 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC96FD61CF3B65E00370214 /* Main.storyboard */; };
 		BDC96FDA1CF3B65E00370214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDC96FD91CF3B65E00370214 /* Assets.xcassets */; };
 		BDC96FDD1CF3B65E00370214 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC96FDB1CF3B65E00370214 /* LaunchScreen.storyboard */; };
-		BDC96FE41CF3B83500370214 /* MASetLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC96FE21CF3B83500370214 /* MASetLocation.m */; };
 		BDC96FE71CF3B84A00370214 /* Secrets.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC96FE51CF3B84A00370214 /* Secrets.m */; };
 		BDD21E451CF79BE000753CF2 /* MAWeatherVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD21E441CF79BE000753CF2 /* MAWeatherVC.m */; };
 		BDD21E481CF7A3F900753CF2 /* MAWeatherAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD21E471CF7A3F900753CF2 /* MAWeatherAPI.m */; };
@@ -35,8 +34,6 @@
 		BDC96FD91CF3B65E00370214 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDC96FDC1CF3B65E00370214 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDC96FDE1CF3B65E00370214 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BDC96FE21CF3B83500370214 /* MASetLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASetLocation.m; sourceTree = "<group>"; };
-		BDC96FE31CF3B83500370214 /* MASetLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASetLocation.h; sourceTree = "<group>"; };
 		BDC96FE51CF3B84A00370214 /* Secrets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Secrets.m; sourceTree = "<group>"; };
 		BDC96FE61CF3B84A00370214 /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secrets.h; sourceTree = "<group>"; };
 		BDD21E431CF79BE000753CF2 /* MAWeatherVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAWeatherVC.h; sourceTree = "<group>"; };
@@ -122,8 +119,6 @@
 		BDD21E531CF7BD0200753CF2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BDC96FE31CF3B83500370214 /* MASetLocation.h */,
-				BDC96FE21CF3B83500370214 /* MASetLocation.m */,
 				BDD21E431CF79BE000753CF2 /* MAWeatherVC.h */,
 				BDD21E441CF79BE000753CF2 /* MAWeatherVC.m */,
 			);
@@ -279,7 +274,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD21E481CF7A3F900753CF2 /* MAWeatherAPI.m in Sources */,
-				BDC96FE41CF3B83500370214 /* MASetLocation.m in Sources */,
 				BDD21E4B1CF7A6D900753CF2 /* MALocationStore.m in Sources */,
 				BDD21E451CF79BE000753CF2 /* MAWeatherVC.m in Sources */,
 				BDC96FD21CF3B65E00370214 /* AppDelegate.m in Sources */,

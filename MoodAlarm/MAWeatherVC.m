@@ -12,9 +12,14 @@
 @interface MAWeatherVC ()
 
 @property (strong, nonatomic) UIActivityIndicatorView *actIndicator;
+@property (strong, nonatomic) NSDictionary *currently;
+@property (strong, nonatomic) NSDictionary *day;
 @property (strong, nonatomic) NSString *latitude;
 @property (strong, nonatomic) NSString *longitude;
 @property (strong, nonatomic) MALocationStore *dataStore;
+
+@property (strong, nonatomic) UILabel *currentTempLabel;
+@property (strong, nonatomic) UILabel *currentSummaryLabel;
 
 @end
 
@@ -32,39 +37,37 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadWeatherView:) name:@"locationInfoComplete" object:nil];
     
-    
-    // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(void)updateCurrentInfo:(NSNotification *)notification {
-    NSArray *currentInfo = [self.dataStore getCurrentLocationInformation];
-    self.latitude = currentInfo[0];
-    self.longitude = currentInfo[1];
-}
 
 -(void)loadWeatherView:(NSNotification *)notification {
     NSLog(@"notification center said to start");
     [self.actIndicator stopAnimating];
     [self.actIndicator setHidden:YES];
     
-    [self.dataStore getWeatherWithCompletionBlock:^(BOOL success) {
-        NSLog(@"%d",success);
+    self.currentTempLabel = [[UILabel alloc] init];
+    self.currentSummaryLabel = [[UILabel alloc] init];
+    
+    [self.dataStore getWeatherWithCompletionBlock:^(NSDictionary *currently, NSDictionary *day) {
+        NSLog(@"Currently: %@",currently);
+        NSLog(@"Temp:%@", currently[@"apparentTemperature"]);
+        NSLog(@"Summary:%@", currently[@"summary"]);
+        self.currently = currently;
+        NSLog(@"Day: %@",day);
+        self.day = day;
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            self.currentTempLabel.text = [NSString stringWithFormat:@"%@",self.currently[@"apparentTemperature"]];
+            self.currentSummaryLabel.text = [NSString stringWithFormat:@"%@",self.currently[@"summary"]];
+        }];
+        
     }];
     
-    UILabel *cityInfo = [[UILabel alloc] init];
-    UILabel *currentWeatherOfCity = [[UILabel alloc] init];
-    
-    UIStackView *myStack = [[UIStackView alloc] initWithArrangedSubviews:@[cityInfo, currentWeatherOfCity]];
+    UIStackView *myStack = [[UIStackView alloc] initWithArrangedSubviews:@[self.currentTempLabel, self.currentSummaryLabel]];
     myStack.axis = UILayoutConstraintAxisVertical;
     
     [self.view addSubview:myStack];
     
-    self.view.translatesAutoresizingMaskIntoConstraints = NO;
     myStack.translatesAutoresizingMaskIntoConstraints = NO;
     
     [myStack.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
@@ -74,8 +77,7 @@
     
     myStack.distribution = UIStackViewDistributionFillEqually;
     myStack.spacing = 15.0;
-    
-    
+
     
 }
 

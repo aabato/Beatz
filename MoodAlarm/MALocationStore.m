@@ -47,15 +47,11 @@
     }
 }
 
--(NSArray *)getCurrentLocationInformation {
-    return @[self.latitude, self.longitude];
-}
-
--(void)getWeatherWithCompletionBlock:(void(^)(BOOL))completionBlock {
+-(void)getWeatherWithCompletionBlock:(void(^)(NSDictionary *currently, NSDictionary *day))completionBlock {
     
     [MAWeatherAPI getWeatherInfoForCurrentLocationForLatitude:self.latitude longitude:self.longitude withCompletion:^(NSDictionary *dict) {
-        NSLog(@"%@",dict[@"currently"][@"apparentTemperature"]);
-        completionBlock(YES);
+//        NSLog(@"%@",dict[@"currently"][@"apparentTemperature"]);
+        completionBlock(dict[@"currently"],dict[@"daily"][@"data"][0]);
     }];
     
 }
@@ -66,16 +62,8 @@
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     NSLog(@"didFailWithError: %@", error);
-    [self.locationManager stopUpdatingLocation];
-//    UIAlertController *errorAlert = [UIAlertController alertControllerWithTitle:@"Failed to Get Your Location" message:@"Try again!" preferredStyle:UIAlertControllerStyleAlert];
-//    
-//    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//        [self dismissViewControllerAnimated:YES completion:nil];
-//    }];
-//    
-//    [errorAlert addAction:ok];
-//    
-//    [self presentViewController:errorAlert animated:YES completion:nil];
+//    [self.locationManager stopUpdatingLocation];
+
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
