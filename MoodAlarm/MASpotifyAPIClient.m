@@ -11,14 +11,23 @@
 @implementation MASpotifyAPIClient
 
 + (void)setupSpotifyOAuth {
-    [[SPTAuth defaultInstance] setClientID:SpotifyClientID];
-    [[SPTAuth defaultInstance] setRedirectURL:[NSURL URLWithString:@"moodalarm-app-scheme://oauth"]];
-    [[SPTAuth defaultInstance] setRequestedScopes:@[SPTAuthStreamingScope,SPTAuthUserLibraryReadScope]];
     
-    NSURL *loginURL = [[SPTAuth defaultInstance] loginURL];
+    SPTAuth *auth = [SPTAuth defaultInstance];
+    auth.clientID = SpotifyClientID;
+    auth.requestedScopes = @[SPTAuthStreamingScope,SPTAuthUserLibraryReadScope];
+    auth.redirectURL = [NSURL URLWithString:@"moodalarm-app-scheme://oauth"];
+    auth.tokenSwapURL = [NSURL URLWithString:@"https://polar-taiga-37562.herokuapp.com/swap"];
+    auth.tokenRefreshURL = [NSURL URLWithString:@"https://polar-taiga-37562.herokuapp.com/refresh"];
+    auth.sessionUserDefaultsKey = @"SpotifySession";
     
-    [[UIApplication sharedApplication] performSelector:@selector(openURL:) withObject:loginURL afterDelay:0.3];
+    NSURL *loginURL = [auth loginURL];
+    
+    [[UIApplication sharedApplication] performSelector:@selector(openURL:) withObject:loginURL afterDelay:0.1];
+    
 }
+
+
+
 
 
 

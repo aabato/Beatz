@@ -10,6 +10,7 @@
 
 @interface Constants : NSObject
 
-extern NSString * const darkSkyForecastURL;
+extern NSString *const darkSkyForecastURL;
+extern NSString *const SpotifyAPIBaseURL;
 
 @end

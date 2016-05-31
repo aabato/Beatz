@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "NSURL+FragmentString.h"
+#import "NSURL+QueryString.h"
+#import "MASpotifyAPIClient.h"
 
 @interface AppDelegate ()
 
@@ -19,17 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    SPTAuth *auth = [SPTAuth defaultInstance];
-    auth.clientID = SpotifyClientID;
-    auth.requestedScopes = @[SPTAuthStreamingScope,SPTAuthUserLibraryReadScope];
-    auth.redirectURL = [NSURL URLWithString:@"moodalarm-app-scheme://oauth"];
-    auth.tokenSwapURL = [NSURL URLWithString:@"https://polar-taiga-37562.herokuapp.com/swap"];
-    auth.tokenRefreshURL = [NSURL URLWithString:@"https://polar-taiga-37562.herokuapp.com/refresh"];
-    auth.sessionUserDefaultsKey = @"SpotifySession";
-    
-    NSURL *loginURL = [auth loginURL];
-    
-    [application performSelector:@selector(openURL:) withObject:loginURL afterDelay:0.1];
+    [MASpotifyAPIClient setupSpotifyOAuth];
     
     return YES;
 }
@@ -66,7 +57,6 @@
             NSLog(@"****Auth error: %@", error);
             return;
         }
-        
         auth.session = session;
         NSLog(@"posting notification");
         [[NSNotificationCenter defaultCenter] postNotificationName:@"sessionUpdated" object:nil];
@@ -75,10 +65,7 @@
     
     if([auth canHandleURL:url]) {
         NSLog(@"%@",url);
-        NSString *accessToken = [url valueForFirstQueryItemNamed:@"access_token"];
-        NSLog(@"access token: %@",accessToken);
-        NSString *expiration = [url valueForFirstQueryItemNamed:@"expires_in"];
-        NSLog(@"expiration: %@",expiration);
+        NSLog(@"code: %@",[url valueForFirstQueryItemNamed:@"code"]);
         
         [auth handleAuthCallbackWithTriggeredAuthURL:url callback:authCallBack];
         return YES;

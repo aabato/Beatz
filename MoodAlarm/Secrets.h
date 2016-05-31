@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * const SpotifyClientID;
-extern NSString * const SpotifyClientSecret;
+extern NSString *const SpotifyClientID;
+extern NSString *const SpotifyClientSecret;
 
-extern NSString * const DarkSkyForecastAPIKey;
+extern NSString *const DarkSkyForecastAPIKey;

@@ -6,11 +6,11 @@
 //  Copyright © 2016 Angelica Bato. All rights reserved.
 //
 
-#import "NSURL+FragmentString.h"
+#import "NSURL+QueryString.h"
 
-@implementation NSURL (FragmentString)
+@implementation NSURL (QueryString)
 
--(NSString *)valueForFirstQueryItemNamed:(NSString *)name
+-(NSString *)valueForFirstFragmentItemNamed:(NSString *)name
 {
     NSURLComponents *urlComps = [NSURLComponents componentsWithURL:self resolvingAgainstBaseURL:nil];
     NSString *fragmentItem = urlComps.fragment;
@@ -23,5 +23,19 @@
     
     return queryItemsDict[name];
 }
+
+-(NSString *)valueForFirstQueryItemNamed:(NSString *)name {
+    
+    NSURLComponents *urlComps = [NSURLComponents componentsWithURL:self resolvingAgainstBaseURL:nil];
+    NSArray *queryItems = urlComps.queryItems;
+    for(NSURLQueryItem *queryItem in queryItems) {
+        if ([queryItem.name isEqualToString:name]) {
+            return queryItem.value;
+        }
+    }
+    
+    return nil;
+}
+
 
 @end

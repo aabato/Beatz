@@ -10,6 +10,7 @@
 
 @implementation Constants
 
-NSString * const darkSkyForecastURL = @"https://api.forecast.io/forecast";
+NSString *const darkSkyForecastURL = @"https://api.forecast.io/forecast";
+NSString *const SpotifyAPIBaseURL = @"https://api.spotify.com/v1/";
 
 @end

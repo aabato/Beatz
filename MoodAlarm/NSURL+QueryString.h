@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSURL (FragmentString)
+@interface NSURL (QueryString)
+
+-(NSString *)valueForFirstFragmentItemNamed:(NSString *)name;
 
 -(NSString *)valueForFirstQueryItemNamed:(NSString *)name;
 
