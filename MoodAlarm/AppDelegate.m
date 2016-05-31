@@ -23,8 +23,8 @@
     auth.clientID = SpotifyClientID;
     auth.requestedScopes = @[SPTAuthStreamingScope,SPTAuthUserLibraryReadScope];
     auth.redirectURL = [NSURL URLWithString:@"moodalarm-app-scheme://oauth"];
-    auth.tokenSwapURL = [NSURL URLWithString:@""];
-    auth.tokenRefreshURL = [NSURL URLWithString:@""];
+    auth.tokenSwapURL = [NSURL URLWithString:@"https://polar-taiga-37562.herokuapp.com/swap"];
+    auth.tokenRefreshURL = [NSURL URLWithString:@"https://polar-taiga-37562.herokuapp.com/refresh"];
     auth.sessionUserDefaultsKey = @"SpotifySession";
     
     NSURL *loginURL = [auth loginURL];
