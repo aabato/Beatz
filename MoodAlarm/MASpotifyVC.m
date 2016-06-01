@@ -30,11 +30,15 @@
     if (auth.session && [auth.session isValid]) {
         NSLog(@"valid session");
         
+//        this is key -- work on this
+//        [SPTPlaylistList createRequestForCreatingPlaylistWithName:@"Discover Weekly" forUser withPublicFlag:<#(BOOL)#> accessToken:<#(NSString *)#> error:<#(NSError *__autoreleasing *)#>]
+        
+        
         [SPTPlaylistList playlistsForUserWithSession:auth.session callback:^(NSError *error, id object) {
             NSLog(@"Result: %@",object);
             SPTPlaylistList *list = object;
-            for(SPTPartialPlaylist *track in list.items) {
-                NSLog(@"Playlist: %@",track.name);
+            for(SPTPartialPlaylist *playlist in list.items) {
+                NSLog(@"Playlist: %@",playlist.name);
             }
         }];
         
