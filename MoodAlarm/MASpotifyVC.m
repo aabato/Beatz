@@ -30,16 +30,32 @@
     if (auth.session && [auth.session isValid]) {
         NSLog(@"valid session");
         
-//        this is key -- work on this
-//        [SPTPlaylistList createRequestForCreatingPlaylistWithName:@"Discover Weekly" forUser withPublicFlag:<#(BOOL)#> accessToken:<#(NSString *)#> error:<#(NSError *__autoreleasing *)#>]
+        NSString *name = [auth.session canonicalUsername];
+        NSURLRequest *discoverRequest = [SPTPlaylistList createRequestForGettingPlaylistsForUser:name withAccessToken:auth.session.accessToken error:nil];
         
-        
-        [SPTPlaylistList playlistsForUserWithSession:auth.session callback:^(NSError *error, id object) {
-            NSLog(@"Result: %@",object);
-            SPTPlaylistList *list = object;
-            for(SPTPartialPlaylist *playlist in list.items) {
-                NSLog(@"Playlist: %@",playlist.name);
+        [[SPTRequest sharedHandler] performRequest:discoverRequest callback:^(NSError *error, NSURLResponse *response, NSData *data) {
+            NSLog(@"%@",data);
+            SPTPlaylistList *playlists = [SPTPlaylistList playlistListFromData:data withResponse:response error:nil];
+            NSLog(@"First req: %@",playlists);
+            for (SPTPartialPlaylist *playlist in playlists.items) {
+                NSLog(@"PG1 -- Playlist name: %@",playlist.name);
             }
+            NSURLRequest *reqForPage2 = [playlists createRequestForNextPageWithAccessToken:auth.session.accessToken error:nil];
+            [[SPTRequest sharedHandler] performRequest:reqForPage2 callback:^(NSError *error2, NSURLResponse *response2, NSData *data2) {
+                SPTPlaylistList *playlists2 = [SPTPlaylistList playlistListFromData:data2 withResponse:response2 error:nil];
+                NSLog(@"Second req: %@",playlists2);
+                for (SPTPartialPlaylist *playlist2 in playlists2.items) {
+                    NSLog(@"PG2 -- Playlist name: %@",playlist2.name);
+                }
+                NSURLRequest *reqForPage3 = [playlists2 createRequestForNextPageWithAccessToken:auth.session.accessToken error:nil];
+                [[SPTRequest sharedHandler] performRequest:reqForPage3 callback:^(NSError *error3, NSURLResponse *response3, NSData *data3) {
+                    SPTPlaylistList *playlists3 = [SPTPlaylistList playlistListFromData:data3 withResponse:response3 error:nil];
+                    NSLog(@"Third req: %@", playlists3);
+                    for (SPTPartialPlaylist *playlist3 in playlists3.items) {
+                        NSLog(@"PG3 -- Playlist name: %@", playlist3.name);
+                    }
+                }];
+            }];
         }];
         
     }
