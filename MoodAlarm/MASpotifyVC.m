@@ -33,18 +33,41 @@
         NSURLRequest *discoverRequest = [SPTPlaylistList createRequestForGettingPlaylistsForUser:name withAccessToken:auth.session.accessToken error:nil];
         
         [[SPTRequest sharedHandler] performRequest:discoverRequest callback:^(NSError *error, NSURLResponse *response, NSData *data) {
+            
             SPTPlaylistList *playlists = [SPTPlaylistList playlistListFromData:data withResponse:response error:nil];
-            NSLog(@"First req: %@",playlists);
+
             for (SPTPartialPlaylist *playlist in playlists.items) {
                 NSLog(@"PG1 -- Playlist name: %@",playlist.name);
                 
                 if ([playlist.name isEqualToString:@"Discover Weekly"]) {
+                    
                     NSURLRequest *tracksSnapshotReq = [SPTPlaylistSnapshot createRequestForPlaylistWithURI:playlist.uri accessToken:auth.session.accessToken error:nil];
+                    
                     [[SPTRequest sharedHandler] performRequest:tracksSnapshotReq callback:^(NSError *error2, NSURLResponse *response2, NSData *data2) {
+                        
                         SPTPlaylistSnapshot *snap = [SPTPlaylistSnapshot playlistSnapshotFromData:data2 withResponse:response2 error:nil];
+                        
+                        NSMutableArray *trackIDs = [NSMutableArray new];
                         for (SPTPlaylistTrack *track in snap.firstTrackPage.tracksForPlayback) {
-                            NSLog(@"Track: %@, %@",track.name, track.playableUri);
+                            [trackIDs addObject:track.identifier];
                         }
+                        
+                        NSString *trackIDsCommaSep = [trackIDs componentsJoinedByString:@","];
+                        NSLog(@"%@",trackIDsCommaSep);
+                        
+                        NSString *fullURLForReq = [NSString stringWithFormat:@"%@audio-features?ids=%@",SpotifyAPIBaseURL,trackIDsCommaSep];
+                        NSLog(@"URL: %@",fullURLForReq);
+                        
+                        NSMutableURLRequest *req = [self authenticatedSpotifyRequestforURL:fullURLForReq];
+                        
+                        [[NSURLSession sharedSession] dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                            
+                            NSLog(@"--------------");
+                            NSLog(@"Error: %@",error);
+                            NSLog(@"Data: %@", data);
+                            
+                        }];
+                        
                     }];
                     
                     break;
@@ -78,6 +101,27 @@
         }];
     }
 
+}
+
+-(NSMutableURLRequest *)authenticatedSpotifyRequestforURL:(NSString *)URLString {
+    
+    SPTAuth *auth = [SPTAuth defaultInstance];
+    NSLog(@"auth session set");
+    if ([auth.session isValid]) {
+        NSLog(@"session is valid");
+        
+        NSString *token = auth.session.accessToken;
+        NSURL *url = [NSURL URLWithString:URLString];
+        NSString *authorizationHeaderValue = [NSString stringWithFormat:@"Bearer %@",token];
+        NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+        [req setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
+        
+        NSLog(@"returning %@", req);
+        
+        return req;
+    }
+    
+    return nil;
 }
 
 - (void)didReceiveMemoryWarning {

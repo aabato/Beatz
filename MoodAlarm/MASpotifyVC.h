@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MASpotifyAPIClient.h"
+#import "Constants.h"
 
 @interface MASpotifyVC : UIViewController
 
