@@ -111,6 +111,7 @@
         NSLog(@"session is valid");
         
         NSString *token = auth.session.accessToken;
+        NSLog(@"Token: %@", token);
         NSURL *url = [NSURL URLWithString:URLString];
         NSString *authorizationHeaderValue = [NSString stringWithFormat:@"Bearer %@",token];
         NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
