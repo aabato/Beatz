@@ -18,7 +18,6 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdatedNotification:) name:@"sessionUpdated" object:nil];
-    
 
 }
 
@@ -34,28 +33,41 @@
         NSURLRequest *discoverRequest = [SPTPlaylistList createRequestForGettingPlaylistsForUser:name withAccessToken:auth.session.accessToken error:nil];
         
         [[SPTRequest sharedHandler] performRequest:discoverRequest callback:^(NSError *error, NSURLResponse *response, NSData *data) {
-            NSLog(@"%@",data);
             SPTPlaylistList *playlists = [SPTPlaylistList playlistListFromData:data withResponse:response error:nil];
             NSLog(@"First req: %@",playlists);
             for (SPTPartialPlaylist *playlist in playlists.items) {
                 NSLog(@"PG1 -- Playlist name: %@",playlist.name);
-            }
-            NSURLRequest *reqForPage2 = [playlists createRequestForNextPageWithAccessToken:auth.session.accessToken error:nil];
-            [[SPTRequest sharedHandler] performRequest:reqForPage2 callback:^(NSError *error2, NSURLResponse *response2, NSData *data2) {
-                SPTPlaylistList *playlists2 = [SPTPlaylistList playlistListFromData:data2 withResponse:response2 error:nil];
-                NSLog(@"Second req: %@",playlists2);
-                for (SPTPartialPlaylist *playlist2 in playlists2.items) {
-                    NSLog(@"PG2 -- Playlist name: %@",playlist2.name);
+                
+                if ([playlist.name isEqualToString:@"Discover Weekly"]) {
+                    NSURLRequest *tracksSnapshotReq = [SPTPlaylistSnapshot createRequestForPlaylistWithURI:playlist.uri accessToken:auth.session.accessToken error:nil];
+                    [[SPTRequest sharedHandler] performRequest:tracksSnapshotReq callback:^(NSError *error2, NSURLResponse *response2, NSData *data2) {
+                        SPTPlaylistSnapshot *snap = [SPTPlaylistSnapshot playlistSnapshotFromData:data2 withResponse:response2 error:nil];
+                        for (SPTPlaylistTrack *track in snap.firstTrackPage.tracksForPlayback) {
+                            NSLog(@"Track: %@, %@",track.name, track.playableUri);
+                        }
+                    }];
+                    
+                    break;
                 }
-                NSURLRequest *reqForPage3 = [playlists2 createRequestForNextPageWithAccessToken:auth.session.accessToken error:nil];
-                [[SPTRequest sharedHandler] performRequest:reqForPage3 callback:^(NSError *error3, NSURLResponse *response3, NSData *data3) {
-                    SPTPlaylistList *playlists3 = [SPTPlaylistList playlistListFromData:data3 withResponse:response3 error:nil];
-                    NSLog(@"Third req: %@", playlists3);
-                    for (SPTPartialPlaylist *playlist3 in playlists3.items) {
-                        NSLog(@"PG3 -- Playlist name: %@", playlist3.name);
-                    }
-                }];
-            }];
+                
+            }
+            
+//            NSURLRequest *reqForPage2 = [playlists createRequestForNextPageWithAccessToken:auth.session.accessToken error:nil];
+//            [[SPTRequest sharedHandler] performRequest:reqForPage2 callback:^(NSError *error2, NSURLResponse *response2, NSData *data2) {
+//                SPTPlaylistList *playlists2 = [SPTPlaylistList playlistListFromData:data2 withResponse:response2 error:nil];
+//                NSLog(@"Second req: %@",playlists2);
+//                for (SPTPartialPlaylist *playlist2 in playlists2.items) {
+//                    NSLog(@"PG2 -- Playlist name: %@",playlist2.name);
+//                }
+//                NSURLRequest *reqForPage3 = [playlists2 createRequestForNextPageWithAccessToken:auth.session.accessToken error:nil];
+//                [[SPTRequest sharedHandler] performRequest:reqForPage3 callback:^(NSError *error3, NSURLResponse *response3, NSData *data3) {
+//                    SPTPlaylistList *playlists3 = [SPTPlaylistList playlistListFromData:data3 withResponse:response3 error:nil];
+//                    NSLog(@"Third req: %@", playlists3);
+//                    for (SPTPartialPlaylist *playlist3 in playlists3.items) {
+//                        NSLog(@"PG3 -- Playlist name: %@", playlist3.name);
+//                    }
+//                }];
+//            }];
         }];
         
     }
