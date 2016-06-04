@@ -7,8 +7,11 @@
 //
 
 #import "MASpotifyVC.h"
+#import "MAAudioTrack.h"
 
 @interface MASpotifyVC ()
+
+@property (strong, nonatomic) NSMutableArray *tracks;
 
 @end
 
@@ -47,13 +50,21 @@
                         
                         SPTPlaylistSnapshot *snap = [SPTPlaylistSnapshot playlistSnapshotFromData:data2 withResponse:response2 error:nil];
                         
-                        NSMutableArray *trackIDs = [NSMutableArray new];
+                        NSMutableString *trackIDsCommaSep = [NSMutableString new];
                         for (SPTPlaylistTrack *track in snap.firstTrackPage.tracksForPlayback) {
-                            [trackIDs addObject:track.identifier];
+                            
+                            MAAudioTrack *currentTrack = [[MAAudioTrack alloc] initWithID:track.identifier name:track.name artists:track.artists];
+                            [self.tracks addObject:currentTrack];
+                            
+                            if ((snap.firstTrackPage.tracksForPlayback.count - 1)  == [snap.firstTrackPage.tracksForPlayback indexOfObject:track]) {
+                                
+                                [trackIDsCommaSep appendString:track.identifier];
+                                
+                            }
+                            else {
+                                [trackIDsCommaSep appendString:[NSString stringWithFormat:@"%@,",track.identifier]];
+                            }
                         }
-                        
-                        NSString *trackIDsCommaSep = [trackIDs componentsJoinedByString:@","];
-                        NSLog(@"%@",trackIDsCommaSep);
                         
                         NSString *fullURLForReq = [NSString stringWithFormat:@"%@audio-features?ids=%@",SpotifyAPIBaseURL,trackIDsCommaSep];
                         NSLog(@"URL: %@",fullURLForReq);
@@ -62,8 +73,8 @@
                         
                         NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                             
-                            NSJSONSerialization *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-                            NSLog(@"%@",json);
+                            NSArray *arrayOfAudFeat = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil][@"audio_features"];
+                            NSLog(@"%@",arrayOfAudFeat);
                             
                         }];
                         
