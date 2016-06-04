@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tracks = [NSMutableArray new];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdatedNotification:) name:@"sessionUpdated" object:nil];
 
@@ -66,6 +67,8 @@
                             }
                         }
                         
+                        NSLog(@"%@",trackIDsCommaSep);
+                        
                         NSString *fullURLForReq = [NSString stringWithFormat:@"%@audio-features?ids=%@",SpotifyAPIBaseURL,trackIDsCommaSep];
                         NSLog(@"URL: %@",fullURLForReq);
                         
@@ -74,7 +77,16 @@
                         NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                             
                             NSArray *arrayOfAudFeat = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil][@"audio_features"];
-                            NSLog(@"%@",arrayOfAudFeat);
+                            
+                            NSUInteger counter = 0;
+                            for (MAAudioTrack *track in self.tracks) {
+                                track.acousticness = [arrayOfAudFeat[counter][@"acousticness"] floatValue];
+                                track.danceability = [arrayOfAudFeat[counter][@"danceability"] floatValue];
+                                track.valence = [arrayOfAudFeat[counter][@"valence"] floatValue];
+                                counter++;
+                            }
+                            
+                            NSLog(@"%@",self.tracks);
                             
                         }];
                         

@@ -23,6 +23,6 @@
 - (instancetype)initWithID:(NSString *)identifier
                       name:(NSString *)name
                    artists:(NSArray *)artists;
-
+- (NSString *)description;
 
 @end

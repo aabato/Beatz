@@ -33,4 +33,11 @@
     return self;
 }
 
+- (NSString *)description {
+    
+    NSString *desc = [NSString stringWithFormat:@"ID: %@ \n Name: %@ \n Artists: %@ \n Acousticness: %f \n danceability: %f \n valence: %f",self.identifier, self.name, self.artists,self.acousticness, self.danceability, self.valence];
+    
+    return desc;
+}
+
 @end
