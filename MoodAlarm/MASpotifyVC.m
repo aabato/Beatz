@@ -60,13 +60,14 @@
                         
                         NSMutableURLRequest *req = [self authenticatedSpotifyRequestforURL:fullURLForReq];
                         
-                        [[NSURLSession sharedSession] dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                        NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                             
-                            NSLog(@"--------------");
-                            NSLog(@"Error: %@",error);
-                            NSLog(@"Data: %@", data);
+                            NSJSONSerialization *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+                            NSLog(@"%@",json);
                             
                         }];
+                        
+                        [task resume];
                         
                     }];
                     
