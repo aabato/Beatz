@@ -45,57 +45,11 @@
                 
                 if ([playlist.name isEqualToString:@"Discover Weekly"]) {
                     
-                    NSURLRequest *tracksSnapshotReq = [SPTPlaylistSnapshot createRequestForPlaylistWithURI:playlist.uri accessToken:auth.session.accessToken error:nil];
-                    
-                    [[SPTRequest sharedHandler] performRequest:tracksSnapshotReq callback:^(NSError *error2, NSURLResponse *response2, NSData *data2) {
-                        
-                        SPTPlaylistSnapshot *snap = [SPTPlaylistSnapshot playlistSnapshotFromData:data2 withResponse:response2 error:nil];
-                        
-                        NSMutableString *trackIDsCommaSep = [NSMutableString new];
-                        for (SPTPlaylistTrack *track in snap.firstTrackPage.tracksForPlayback) {
-                            
-                            MAAudioTrack *currentTrack = [[MAAudioTrack alloc] initWithID:track.identifier name:track.name artists:track.artists];
-                            [self.tracks addObject:currentTrack];
-                            
-                            if ((snap.firstTrackPage.tracksForPlayback.count - 1)  == [snap.firstTrackPage.tracksForPlayback indexOfObject:track]) {
-                                
-                                [trackIDsCommaSep appendString:track.identifier];
-                                
-                            }
-                            else {
-                                [trackIDsCommaSep appendString:[NSString stringWithFormat:@"%@,",track.identifier]];
-                            }
-                        }
-                        
-                        NSLog(@"%@",trackIDsCommaSep);
-                        
-                        NSString *fullURLForReq = [NSString stringWithFormat:@"%@audio-features?ids=%@",SpotifyAPIBaseURL,trackIDsCommaSep];
-                        NSLog(@"URL: %@",fullURLForReq);
-                        
-                        NSMutableURLRequest *req = [self authenticatedSpotifyRequestforURL:fullURLForReq];
-                        
-                        NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                            
-                            NSArray *arrayOfAudFeat = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil][@"audio_features"];
-                            
-                            NSUInteger counter = 0;
-                            for (MAAudioTrack *track in self.tracks) {
-                                track.acousticness = [arrayOfAudFeat[counter][@"acousticness"] floatValue];
-                                track.danceability = [arrayOfAudFeat[counter][@"danceability"] floatValue];
-                                track.valence = [arrayOfAudFeat[counter][@"valence"] floatValue];
-                                counter++;
-                            }
-                            
-                            NSLog(@"%@",self.tracks);
-                            
-                        }];
-                        
-                        [task resume];
-                        
-                    }];
+                    [self queryTracksFromPlaylist:playlist session:auth.session];
                     
                     break;
                 }
+                
                 
             }
             
@@ -127,7 +81,58 @@
 
 }
 
--(NSMutableURLRequest *)authenticatedSpotifyRequestforURL:(NSString *)URLString {
+
+- (void)queryTracksFromPlaylist:(SPTPartialPlaylist *)playlist session:(SPTSession *)session {
+    NSURLRequest *tracksSnapshotReq = [SPTPlaylistSnapshot createRequestForPlaylistWithURI:playlist.uri accessToken:session.accessToken error:nil];
+    
+    [[SPTRequest sharedHandler] performRequest:tracksSnapshotReq callback:^(NSError *error2, NSURLResponse *response2, NSData *data2) {
+        
+        SPTPlaylistSnapshot *snap = [SPTPlaylistSnapshot playlistSnapshotFromData:data2 withResponse:response2 error:nil];
+        
+        NSMutableString *trackIDsCommaSep = [NSMutableString new];
+        for (SPTPlaylistTrack *track in snap.firstTrackPage.tracksForPlayback) {
+            
+            MAAudioTrack *currentTrack = [[MAAudioTrack alloc] initWithID:track.identifier name:track.name artists:track.artists];
+            [self.tracks addObject:currentTrack];
+            
+            if ((snap.firstTrackPage.tracksForPlayback.count - 1)  == [snap.firstTrackPage.tracksForPlayback indexOfObject:track]) {
+                
+                [trackIDsCommaSep appendString:track.identifier];
+                
+            }
+            else {
+                [trackIDsCommaSep appendString:[NSString stringWithFormat:@"%@,",track.identifier]];
+            }
+        }
+        
+        NSString *fullURLForReq = [NSString stringWithFormat:@"%@audio-features?ids=%@",SpotifyAPIBaseURL,trackIDsCommaSep];
+        NSLog(@"URL: %@",fullURLForReq);
+        
+        NSMutableURLRequest *req = [self authenticatedSpotifyRequestforURL:fullURLForReq];
+        
+        NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            
+            NSArray *arrayOfAudFeat = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil][@"audio_features"];
+            
+            NSUInteger counter = 0;
+            for (MAAudioTrack *track in self.tracks) {
+                track.acousticness = [arrayOfAudFeat[counter][@"acousticness"] floatValue];
+                track.danceability = [arrayOfAudFeat[counter][@"danceability"] floatValue];
+                track.valence = [arrayOfAudFeat[counter][@"valence"] floatValue];
+                counter++;
+            }
+            
+            NSLog(@"%@",self.tracks);
+            
+        }];
+        
+        [task resume];
+        
+    }];
+    
+}
+
+- (NSMutableURLRequest *)authenticatedSpotifyRequestforURL:(NSString *)URLString {
     
     SPTAuth *auth = [SPTAuth defaultInstance];
     NSLog(@"auth session set");
