@@ -41,9 +41,9 @@
             
             self.foundPlaylist = NO;
             
-            NSPredicate *checkForDiscover = [NSPredicate predicateWithFormat:@"SELF.name contains[c] 'Discover Weekly'"];
+            NSPredicate *findDiscover = [NSPredicate predicateWithFormat:@"SELF.name contains[c] 'Discover Weekly'"];
             
-            NSArray *filteredPlaylist = [playlists.items filteredArrayUsingPredicate:checkForDiscover];
+            NSArray *filteredPlaylist = [playlists.items filteredArrayUsingPredicate:findDiscover];
             
             if (filteredPlaylist) {
                 self.foundPlaylist = YES;
