@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD762DBF1D33E9AD00411A2F /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD762DBE1D33E9AD00411A2F /* Keys.plist */; };
 		BDEC2C4B1D2BF9D500043033 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC2C4A1D2BF9D500043033 /* AppDelegate.swift */; };
 		BDEC2C4D1D2BF9D600043033 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC2C4C1D2BF9D600043033 /* ViewController.swift */; };
 		BDEC2C501D2BF9D600043033 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDEC2C4E1D2BF9D600043033 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 		3068A31F74ADEF8A9DA75033 /* Pods_MoodAlarmS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoodAlarmS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7034CC1DF09E8B2410B2E458 /* Pods-MoodAlarmS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoodAlarmS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoodAlarmS/Pods-MoodAlarmS.release.xcconfig"; sourceTree = "<group>"; };
 		88198EE6D9197513267D00D3 /* Pods-MoodAlarmS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoodAlarmS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoodAlarmS/Pods-MoodAlarmS.debug.xcconfig"; sourceTree = "<group>"; };
+		BD762DBE1D33E9AD00411A2F /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Keys.plist; path = ../Keys.plist; sourceTree = "<group>"; };
 		BDEC2C471D2BF9D500043033 /* MoodAlarmS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodAlarmS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDEC2C4A1D2BF9D500043033 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDEC2C4C1D2BF9D600043033 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				BD86EABE1D33136200E470CA /* Controller */,
 				BDEC2C511D2BF9D600043033 /* Assets.xcassets */,
 				BDEC2C561D2BF9D600043033 /* Info.plist */,
+				BD762DBE1D33E9AD00411A2F /* Keys.plist */,
 			);
 			path = MoodAlarmS;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD762DBF1D33E9AD00411A2F /* Keys.plist in Resources */,
 				BDEC2C551D2BF9D600043033 /* LaunchScreen.storyboard in Resources */,
 				BDEC2C521D2BF9D600043033 /* Assets.xcassets in Resources */,
 				BDEC2C501D2BF9D600043033 /* Main.storyboard in Resources */,
