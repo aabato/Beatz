@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -117,18 +118,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func updateLocationInfo() {
         
-        
+        self.getWeatherInfo(forCurrentLocation: currentLocation) { (currently, today) in
+            print("\(currently),\(today)")
+        }
     }
     
-    func getWeatherInfo(forCurrentLocation location:CLLocation, completion:([[String:AnyObject]]) -> Void) -> Void {
+    func getWeatherInfo(forCurrentLocation location:CLLocation, completion:([String:AnyObject],[String:AnyObject]) -> Void) -> Void {
         
         let urlString = "\(darkSkyForecastURL)/\(darkSkyForecastAPIKey)/\(location.coordinate.latitude),\(location.coordinate.longitude)"
         
         Alamofire.request(.GET, urlString)
             .responseJSON { response in
                 if let JSON = response.result.value {
-                    let results = JSON["results"] as! [[String:AnyObject]]
-                    completion(results)
+//                    print(response.result.value)
+                    let currently = JSON["currently"] as! [String:AnyObject]
+                    let todayForecast = JSON["daily"]?!["data"]??[0] as! [String:AnyObject]
+                    completion(currently,todayForecast)
                 }
         }
     }
