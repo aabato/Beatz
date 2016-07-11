@@ -8,14 +8,34 @@
 
 import UIKit
 
+var darkSkyForecastAPIKey:String!
+var spotifyClientID:String!
+var spotifyClientSecret:String!
+
+var darkSkyForecastURL:String!
+var spotifyAPIBaseURL:String!
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var keys: NSDictionary?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if let path = NSBundle.mainBundle().pathForResource("Keys", ofType: "plist") {
+            keys = NSDictionary(contentsOfFile: path)
+        }
+        
+        if let dict = keys {
+            darkSkyForecastAPIKey = dict["DarkSkyForecastAPIKey"] as! String
+            spotifyClientID = dict["SpotifyClientID"] as! String
+            spotifyClientSecret = dict["SpotifyClientSecret"] as! String
+        }
+        
+        darkSkyForecastURL = "https://api.forecast.io/forecast"
+        spotifyAPIBaseURL = "https://api.spotify.com/v1/"
         
         if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "HasLaunchedOnce")
