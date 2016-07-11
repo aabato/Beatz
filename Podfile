@@ -5,5 +5,6 @@ use_frameworks!
 
 target 'MoodAlarmS' do
     pod 'Alamofire', '~> 3.4'
+    pod 'SwiftyJSON', '~> 2.3'
 end
 

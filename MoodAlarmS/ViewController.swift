@@ -33,7 +33,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    // Location Services
+    // MARK: Location Services
     
     func getLocation() {
         let locationServiceOn = CLLocationManager.locationServicesEnabled()
@@ -83,7 +83,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         print("Current Location: \(currentLocation), Lat: \(latitude), Long: \(longitude)")
         
-//        updateLocationInfo()
+        updateLocationInfo()
         
     }
     
@@ -113,6 +113,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             break
         }
         
+    }
+    
+    func updateLocationInfo() {
+        
+        
+    }
+    
+    func getWeatherInfo(forCurrentLocation location:CLLocation, completion:([[String:AnyObject]]) -> Void) -> Void {
+        
+        let urlString = "\(darkSkyForecastURL)/\(darkSkyForecastAPIKey)/\(location.coordinate.latitude),\(location.coordinate.longitude)"
+        
+        Alamofire.request(.GET, urlString)
+            .responseJSON { response in
+                if let JSON = response.result.value {
+                    let results = JSON["results"] as! [[String:AnyObject]]
+                    completion(results)
+                }
+        }
     }
 
     
