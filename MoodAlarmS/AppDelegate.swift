@@ -16,6 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "HasLaunchedOnce")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        else if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedMoreThanOnce") {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "HasLaunchedMoreThanOnce")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+
         return true
     }
 
