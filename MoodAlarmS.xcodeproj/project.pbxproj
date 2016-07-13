@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		BD3F3D941D35D93200532E55 /* Spotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3F3D931D35D93200532E55 /* Spotify.swift */; };
 		BD3F3D961D35DA8800532E55 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3F3D951D35DA8800532E55 /* Spotify.framework */; };
+		BD3F3D9E1D36793B00532E55 /* MAmodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD3F3D9C1D36793B00532E55 /* MAmodel.xcdatamodeld */; };
+		BD3F3DA31D36A8B000532E55 /* SpotifyTrack+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3F3D9F1D36A8B000532E55 /* SpotifyTrack+CoreDataProperties.swift */; };
+		BD3F3DA41D36A8B000532E55 /* SpotifyTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3F3DA01D36A8B000532E55 /* SpotifyTrack.swift */; };
+		BD3F3DA51D36A8B000532E55 /* SpotifyArtist+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3F3DA11D36A8B000532E55 /* SpotifyArtist+CoreDataProperties.swift */; };
+		BD3F3DA61D36A8B000532E55 /* SpotifyArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3F3DA21D36A8B000532E55 /* SpotifyArtist.swift */; };
 		BD762DBF1D33E9AD00411A2F /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD762DBE1D33E9AD00411A2F /* Keys.plist */; };
 		BDEC2C4B1D2BF9D500043033 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC2C4A1D2BF9D500043033 /* AppDelegate.swift */; };
 		BDEC2C4D1D2BF9D600043033 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC2C4C1D2BF9D600043033 /* ViewController.swift */; };
@@ -25,6 +30,11 @@
 		BD3F3D931D35D93200532E55 /* Spotify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spotify.swift; sourceTree = "<group>"; };
 		BD3F3D951D35DA8800532E55 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		BD3F3D971D35DAA400532E55 /* MoodAlarmS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MoodAlarmS-Bridging-Header.h"; sourceTree = "<group>"; };
+		BD3F3D9D1D36793B00532E55 /* MAmodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MAmodel.xcdatamodel; sourceTree = "<group>"; };
+		BD3F3D9F1D36A8B000532E55 /* SpotifyTrack+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpotifyTrack+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BD3F3DA01D36A8B000532E55 /* SpotifyTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyTrack.swift; sourceTree = "<group>"; };
+		BD3F3DA11D36A8B000532E55 /* SpotifyArtist+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpotifyArtist+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BD3F3DA21D36A8B000532E55 /* SpotifyArtist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyArtist.swift; sourceTree = "<group>"; };
 		BD762DBE1D33E9AD00411A2F /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Keys.plist; path = ../Keys.plist; sourceTree = "<group>"; };
 		BDEC2C471D2BF9D500043033 /* MoodAlarmS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodAlarmS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDEC2C4A1D2BF9D500043033 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +89,10 @@
 		BD86EABC1D33135600E470CA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BD3F3D9F1D36A8B000532E55 /* SpotifyTrack+CoreDataProperties.swift */,
+				BD3F3DA01D36A8B000532E55 /* SpotifyTrack.swift */,
+				BD3F3DA11D36A8B000532E55 /* SpotifyArtist+CoreDataProperties.swift */,
+				BD3F3DA21D36A8B000532E55 /* SpotifyArtist.swift */,
 				BD3F3D931D35D93200532E55 /* Spotify.swift */,
 			);
 			name = Model;
@@ -105,6 +119,7 @@
 		BDEC2C3E1D2BF9D500043033 = {
 			isa = PBXGroup;
 			children = (
+				BD3F3D9C1D36793B00532E55 /* MAmodel.xcdatamodeld */,
 				BDEC2C491D2BF9D500043033 /* MoodAlarmS */,
 				BDEC2C481D2BF9D500043033 /* Products */,
 				87C7A7C5B1A67C481DEFF7A0 /* Pods */,
@@ -256,7 +271,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD3F3D941D35D93200532E55 /* Spotify.swift in Sources */,
+				BD3F3D9E1D36793B00532E55 /* MAmodel.xcdatamodeld in Sources */,
+				BD3F3DA41D36A8B000532E55 /* SpotifyTrack.swift in Sources */,
+				BD3F3DA61D36A8B000532E55 /* SpotifyArtist.swift in Sources */,
+				BD3F3DA51D36A8B000532E55 /* SpotifyArtist+CoreDataProperties.swift in Sources */,
 				BDEC2C4D1D2BF9D600043033 /* ViewController.swift in Sources */,
+				BD3F3DA31D36A8B000532E55 /* SpotifyTrack+CoreDataProperties.swift in Sources */,
 				BDEC2C4B1D2BF9D500043033 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +445,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BD3F3D9C1D36793B00532E55 /* MAmodel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BD3F3D9D1D36793B00532E55 /* MAmodel.xcdatamodel */,
+			);
+			currentVersion = BD3F3D9D1D36793B00532E55 /* MAmodel.xcdatamodel */;
+			path = MAmodel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BDEC2C3F1D2BF9D500043033 /* Project object */;
 }

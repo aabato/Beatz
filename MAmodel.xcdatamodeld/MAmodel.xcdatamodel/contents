@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Xcode 7.0">
+    <entity name="SpotifyArtist" representedClassName=".SpotifyArtist" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="trackByArtist" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SpotifyTrack" inverseName="artistsOnTrack" inverseEntity="SpotifyTrack" syncable="YES"/>
+    </entity>
+    <entity name="SpotifyTrack" representedClassName=".SpotifyTrack" syncable="YES">
+        <attribute name="acousticness" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="danceability" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="valence" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="artistsOnTrack" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SpotifyArtist" inverseName="trackByArtist" inverseEntity="SpotifyArtist" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="SpotifyTrack" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="SpotifyArtist" positionX="-54" positionY="27" width="128" height="75"/>
+    </elements>
+</model>
