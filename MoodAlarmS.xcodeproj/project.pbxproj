@@ -66,6 +66,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BD3F3D9B1D35E2F300532E55 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BDEC2C561D2BF9D600043033 /* Info.plist */,
+				BD762DBE1D33E9AD00411A2F /* Keys.plist */,
+				BD3F3D971D35DAA400532E55 /* MoodAlarmS-Bridging-Header.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		BD86EABC1D33135600E470CA /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +87,7 @@
 		BD86EABD1D33135C00E470CA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BDEC2C511D2BF9D600043033 /* Assets.xcassets */,
 				BDEC2C4E1D2BF9D600043033 /* Main.storyboard */,
 				BDEC2C531D2BF9D600043033 /* LaunchScreen.storyboard */,
 			);
@@ -116,10 +127,7 @@
 				BD86EABC1D33135600E470CA /* Model */,
 				BD86EABD1D33135C00E470CA /* View */,
 				BD86EABE1D33136200E470CA /* Controller */,
-				BDEC2C511D2BF9D600043033 /* Assets.xcassets */,
-				BDEC2C561D2BF9D600043033 /* Info.plist */,
-				BD762DBE1D33E9AD00411A2F /* Keys.plist */,
-				BD3F3D971D35DAA400532E55 /* MoodAlarmS-Bridging-Header.h */,
+				BD3F3D9B1D35E2F300532E55 /* Supporting Files */,
 			);
 			path = MoodAlarmS;
 			sourceTree = "<group>";
