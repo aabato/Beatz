@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import Alamofire
 import SwiftyJSON
+import CoreData
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -17,6 +18,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var currentLocation:CLLocation!
     var latitude:Double!
     var longitude:Double!
+    
+    var discoverWeeklyList = [NSManagedObject]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,15 +133,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         Alamofire.request(.GET, urlString)
             .responseJSON { response in
                 if let JSON = response.result.value {
-//                    print(response.result.value)
                     let currently = JSON["currently"] as! [String:AnyObject]
-                    let todayForecast = JSON["daily"]?!["data"]??[0] as! [String:AnyObject]
-                    completion(currently,todayForecast)
+                    if let todayForecast = JSON["daily"] as? [String:AnyObject] {
+                        if let data = todayForecast["data"] as? [[String:AnyObject]] {
+                            if let dataArray = data[0] as? [String:AnyObject] {
+                                completion(currently,dataArray)
+                            }
+                        }
+                    }
                 }
         }
     }
 
-    
+    func saveContext() {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        
+    }
 
 
 }
