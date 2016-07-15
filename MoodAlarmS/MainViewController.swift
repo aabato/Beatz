@@ -28,6 +28,8 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         latitude = Double()
         longitude = Double()
         
+        print("getting location")
+        
         getLocation()
         // Do any additional setup after loading the view, typically from a nib.
     }

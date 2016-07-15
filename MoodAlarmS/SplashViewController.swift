@@ -15,15 +15,19 @@ class SplashViewController: UIViewController {
         super.viewDidLoad()
         
         let logInButton = UIButton()
+        logInButton.addTarget(self, action: #selector(self.tappedLogin(_:)), forControlEvents: .TouchUpInside)
         logInButton.setTitle("Login With Spotify", forState: .Normal)
         logInButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        logInButton.titleLabel?.font = UIFont.init(name: "Avenir", size: 20.0)
         logInButton.layer.cornerRadius = 15
         logInButton.layer.borderWidth = 1
         logInButton.layer.borderColor = UIColor.blackColor().CGColor
         
         let continueWOLogin = UIButton()
+        continueWOLogin.addTarget(self, action: #selector(self.tappedDoNotLogin(_:)), forControlEvents: .TouchUpInside)
         continueWOLogin.setTitle("Start Using Without Spotify", forState: .Normal)
         continueWOLogin.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        continueWOLogin.titleLabel?.font = UIFont.init(name: "Avenir", size: 20.0)
         continueWOLogin.layer.cornerRadius = 15
         continueWOLogin.layer.borderWidth = 1
         continueWOLogin.layer.borderColor = UIColor.blackColor().CGColor
@@ -50,6 +54,14 @@ class SplashViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func tappedLogin(sender: UIButton) {
+        print("Hello")
+        performSegueWithIdentifier("toSpotifyAccess", sender: nil)
+    }
+    
+    @IBAction func tappedDoNotLogin(sender: UIButton) {
+        print("It's me")
+    }
 
     /*
     // MARK: - Navigation
