@@ -12,7 +12,7 @@ import Alamofire
 import SwiftyJSON
 import CoreData
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     var locationManager:CLLocationManager!
     var currentLocation:CLLocation!
