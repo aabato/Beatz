@@ -136,20 +136,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     let currently = JSON["currently"] as! [String:AnyObject]
                     if let todayForecast = JSON["daily"] as? [String:AnyObject] {
                         if let data = todayForecast["data"] as? [[String:AnyObject]] {
-                            if let dataArray = data[0] as? [String:AnyObject] {
-                                completion(currently,dataArray)
-                            }
+                            let dataArray = data[0]
+                            completion(currently,dataArray)
+                            
                         }
                     }
                 }
         }
     }
 
-    func saveContext() {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext
-        
-    }
+//    func saveContext() {  // USE THIS CODE LATER WHEN WE HIT SPOTIFY API
+//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//        let managedContext = appDelegate.managedObjectContext
+//        let entity = NSEntityDescription.entityForName("Track",
+//                                                       inManagedObjectContext: managedContext)
+//        let track = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+//        
+//        
+//        
+//        
+//    }
 
 
 }
